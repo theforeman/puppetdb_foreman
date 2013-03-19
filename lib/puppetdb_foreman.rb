@@ -1,3 +1,3 @@
-module PuppetdbPlugin
-  require 'puppetdb_plugin/engine' if defined?(Rails) && Rails::VERSION::MAJOR == 3
+module PuppetdbForeman
+  require 'puppetdb_foreman/engine' if defined?(Rails) && Rails::VERSION::MAJOR == 3
 end
