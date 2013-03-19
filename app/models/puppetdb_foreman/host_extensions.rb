@@ -11,7 +11,7 @@ module PuppetdbForeman
             uri = URI.parse(SETTINGS[:puppetdb][:address])            
             req = Net::HTTP::Post.new(uri.path) 
             req['Accept'] = 'application/json'
-            req.set_form_data('payload' => { 'command' => 'deactivate node','version' => 1, 'payload' => "#{name}" })
+            req.body = 'payload={"command":"deactivate node","version":1,"payload":"\"'+name+'\""}'
             res             = Net::HTTP.new(uri.host, uri.port)           
             res.use_ssl     = uri.scheme == 'https'                       
             if res.use_ssl?                                               
