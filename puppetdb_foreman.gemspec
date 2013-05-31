@@ -1,7 +1,7 @@
 require 'rake'
 Gem::Specification.new do |s|
   s.name        = 'puppetdb_foreman'
-  s.version     = '0.0.3'
+  s.version     = '0.0.4'
   s.date        = '2013-03-19'
   s.summary     = ""
   s.description = ""
