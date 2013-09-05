@@ -6,11 +6,12 @@ This is a foreman plugin to interact with puppetdb through callbacks.
 
 Add to bundler.d/Gemfile.local.rb as:
 
-    gem 'puppetdb\_foreman', :git => 'https://github.com/cernops/puppetdb\_foreman.git'
+    gem 'puppetdb\_foreman'
 
 then update & restart Foreman:
 
     bundle update
+    
 
 # Usage:
 
