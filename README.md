@@ -6,6 +6,16 @@ Feel free to raise issues, ask for features, anything, in the github repository.
 
 # Installation:
 
+**From packages**
+
+Set up the appropriate repository by following [these instructions](http://theforeman.org/manuals/1.5/index.html#3.3InstallFromPackages)
+
+RPM users can install the "ruby193-rubygem-puppetdb_foreman" or "rubygem-puppetdb_foreman" packages.
+
+Deb users can install the "ruby-puppetdb-foreman" package.
+
+**From Rubygems**
+
 Add to bundler.d/Gemfile.local.rb as:
 
     gem 'puppetdb_foreman'
