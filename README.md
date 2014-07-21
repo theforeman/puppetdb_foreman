@@ -23,22 +23,15 @@ Add to bundler.d/Gemfile.local.rb as:
 then update & restart Foreman:
 
     bundle update
-    
+
 
 # Usage:
 
+Go to Administer > Settings > PuppetDB and set puppetdb_address with your PuppetDB address, puppetdb_enabled to either true or false if you want to enable or disable PuppetDB integration. Obviously you will need a puppetdb instance at the address you provide.
 
-Add to your Foreman `config/settings.yaml`:
+`If you are upgrading from < 0.0.5, your settings from config/settings.yaml`.
 
-```yaml
-:puppetdb:
-  :enabled: true
-  :address: 'https://puppetdb:8081/v2/commands'
-```
-
-Obviously you will need a puppetdb instance at the address you provide.
-
-# Copyright: 
+# Copyright:
 Copyright 2013 CERN, Switzerland
 
 Licensed under the Apache License, Version 2.0 (the "License");
