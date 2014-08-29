@@ -7,7 +7,7 @@ class Setting::Puppetdb < ::Setting
       default_address = SETTINGS[:puppetdb][:address]
     end
 
-    default_enabled ||= 'false'
+    default_enabled = false if default_enabled.nil?
     default_address ||= 'https://puppetdb:8081/v2/commands'
 
     Setting.transaction do
