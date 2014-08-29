@@ -24,7 +24,7 @@ module PuppetdbForeman
         logger.debug "Deactivating host #{name} in Puppetdb"
         return false unless configured?
 
-        if Setting[:puppetdb_enabled]
+        if enabled?
           begin
             uri = URI.parse(Setting[:puppetdb_address])
             req = Net::HTTP::Post.new(uri.path)
@@ -55,10 +55,14 @@ module PuppetdbForeman
       private
 
       def configured?
-        if Setting[:puppetdb_enabled] && Setting[:puppetdb_address].blank?
+        if enabled? && Setting[:puppetdb_address].blank?
           errors.add(:base, _("PuppetDB plugin is enabled but not configured. Please configure it before trying to delete a host."))
         end
         errors.empty?
+      end
+
+      def enabled?
+        [true, 'true'].include? Setting[:puppetdb_enabled]
       end
     end
   end
