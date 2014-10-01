@@ -19,6 +19,7 @@ module PuppetdbForeman
     extend ActiveSupport::Concern
     included do
       before_destroy :deactivate_host
+      after_build :deactivate_host
 
       def deactivate_host
         logger.debug "Deactivating host #{name} in Puppetdb"
