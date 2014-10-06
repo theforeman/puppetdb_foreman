@@ -23,6 +23,15 @@ module PuppetdbForeman
     initializer 'puppetdb_foreman.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :puppetdb_foreman do
         requires_foreman '> 1.0'
+        security_block :puppetdb_foreman do
+          permission :view_puppetdb_dashboard, {:'puppetdb_foreman/puppetdb' => [:index]}
+        end
+        role 'PuppetDB Dashboard', [:view_puppetdb_dashboard]
+        menu :top_menu, :puppetdb, :caption => N_('PuppetDB Dashboard'),
+                                   :url_hash => {:controller => 'puppetdb_foreman/puppetdb', :action => 'index', :puppetdb => 'puppetdb'},
+                                   :html => {:target => '_blank'},
+                                   :parent => :monitor_menu,
+                                   :last => true
       end
     end
 
