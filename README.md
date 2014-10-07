@@ -1,7 +1,11 @@
 # Puppetdb\_foreman
 
-This is a foreman plugin to interact with puppetdb through callbacks.
-At the moment it basically disables hosts on puppetdb after they are deleted in Foreman.
+This is a foreman plugin to interact with puppetdb.
+At the moment it basically does the following:
+
+  1. Disables hosts on puppetdb after they are deleted in Foreman.
+  2. Proxies the PuppetDB Performance Dashboard for access through Foreman.
+
 Feel free to raise issues, ask for features, anything, in the github repository.
 
 # Installation:
