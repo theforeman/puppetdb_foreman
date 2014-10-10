@@ -19,7 +19,7 @@ module PuppetdbForeman
 
     # Override from application controller to fix issue
     def api_request?
-      request.format and (request.format.json? or request.format.yaml?)
+      request.format && (request.format.json? || request.format.yaml?)
     end
 
   end
