@@ -4,16 +4,16 @@ module PuppetdbForeman
     def index
       begin
         uri = URI.parse(Setting[:puppetdb_dashboard_address])
-        puppetdb_url = case params[:puppetdb]
-                       when 'd3.v2', 'charts' then "#{uri.path}#{request.original_fullpath}"
-                       when 'v3'              then request.original_fullpath
-                       else                        "#{uri.path}/index.html"
-                       end
+        puppetdb_url, layout = case params[:puppetdb]
+                               when 'd3.v2', 'charts' then ["#{uri.path}#{request.original_fullpath}", false]
+                               when 'v3'              then [request.original_fullpath, false]
+                               else                        ["#{uri.path}/index.html", true]
+                               end
         result = Net::HTTP.get_response(uri.host, puppetdb_url, uri.port)
         # render error if result. ...
-        render :text => result.body
+        render :text => result.body, :layout => layout
       rescue SocketError => error
-        render :text => 'Error Proxying PuppetDB Dashboard: maybe you need to set "puppetdb_dashboard_address"'
+        render :text => 'Error Proxying PuppetDB Dashboard: maybe you need to set "puppetdb_dashboard_address"', :layout => true
       end
     end
 

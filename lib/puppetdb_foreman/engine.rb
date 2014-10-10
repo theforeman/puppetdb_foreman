@@ -29,7 +29,6 @@ module PuppetdbForeman
         role 'PuppetDB Dashboard', [:view_puppetdb_dashboard]
         menu :top_menu, :puppetdb, :caption => N_('PuppetDB Dashboard'),
                                    :url_hash => {:controller => 'puppetdb_foreman/puppetdb', :action => 'index', :puppetdb => 'puppetdb'},
-                                   :html => {:target => '_blank'},
                                    :parent => :monitor_menu,
                                    :last => true
       end
