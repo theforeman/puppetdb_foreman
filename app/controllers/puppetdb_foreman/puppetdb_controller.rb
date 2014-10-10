@@ -13,7 +13,7 @@ module PuppetdbForeman
         # render error if result. ...
         render :text => result.body, :layout => layout
       rescue SocketError => error
-        render :text => 'Error Proxying PuppetDB Dashboard: maybe you need to set "puppetdb_dashboard_address"', :layout => true
+        render :action => :error, :layout => true
       end
     end
 
