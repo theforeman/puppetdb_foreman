@@ -10,7 +10,6 @@ module PuppetdbForeman
                                else                        ["#{uri.path}/index.html", true]
                                end
         result = Net::HTTP.get_response(uri.host, puppetdb_url, uri.port)
-        # render error if result. ...
         render :text => result.body, :layout => layout
       rescue SocketError => error
         render :action => :error, :layout => true
