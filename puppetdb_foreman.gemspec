@@ -1,7 +1,7 @@
 require 'rake'
 Gem::Specification.new do |s|
   s.name        = 'puppetdb_foreman'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.date        = '2014-10-11'
   s.license     = 'Apache-2.0'
   s.summary     = 'This is a Foreman plugin to interact with PuppetDB.'

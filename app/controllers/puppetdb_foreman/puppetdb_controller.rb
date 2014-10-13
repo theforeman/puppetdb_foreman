@@ -12,6 +12,13 @@ module PuppetdbForeman
         result = Net::HTTP.get_response(uri.host, puppetdb_url, uri.port)
         render :text => result.body, :layout => layout
       rescue SocketError => error
+        @proxy_error = "Problem connecting to host #{uri.host} on port #{uri.port}"
+        render :action => :error, :layout => true
+      rescue Errno::ECONNREFUSED => error
+        @proxy_error = "#{uri.host} refused our conneciton"
+        render :action => :error, :layout => true
+      rescue EOFError => error
+        @proxy_error = "Don't use ssl (https)"
         render :action => :error, :layout => true
       end
     end
