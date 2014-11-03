@@ -1,11 +1,15 @@
 # puppetdb\_foreman
 
+[![Code Climate](https://codeclimate.com/github/theforeman/puppetdb_foreman/badges/gpa.svg)](https://codeclimate.com/github/theforeman/puppetdb_foreman)
+[![Gem Version](https://badge.fury.io/rb/puppetdb_foreman.svg)](http://badge.fury.io/rb/puppetdb_foreman)
+[![Dependency Status](https://gemnasium.com/theforeman/puppetdb_foreman.svg)](https://gemnasium.com/theforeman/puppetdb_foreman)
+
 This is a [Foreman](http://theforeman.org) plugin to interact with [PuppetDB](https://docs.puppetlabs.com/puppetdb/index.html).
 
 It does the following:
 
-  1. Disables hosts on PuppetDB after they are deleted in Foreman.
-  2. Proxies the PuppetDB Performance Dashboard for access through Foreman.
+  * Disables hosts on PuppetDB after they are deleted in Foreman.
+  * Proxies the PuppetDB Performance Dashboard for access through Foreman.
 
 Feel free to raise issues, ask for features, anything, in the github repository or #theforeman IRC channel in Freenode.
 
