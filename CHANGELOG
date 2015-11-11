@@ -1,4 +1,5 @@
 2015-11-11	Daniel Lobato <elobatocs@gmail.com>
+	* Bump version to 0.2.0
 	* Load version from Ruby constant
 
 2015-11-11	Daniel Klockenkaemper <dk@marketing-factory.de>
