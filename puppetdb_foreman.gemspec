@@ -1,7 +1,9 @@
 require 'rake'
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+require 'puppetdb_foreman/version'
 Gem::Specification.new do |s|
   s.name        = 'puppetdb_foreman'
-  s.version     = '0.1.3'
+  s.version     = PuppetdbForeman::VERSION
   s.date        = '2015-10-25'
   s.license     = 'GPL-3'
   s.summary     = 'This is a Foreman plugin to interact with PuppetDB.'
