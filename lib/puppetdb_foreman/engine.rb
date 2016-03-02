@@ -7,7 +7,7 @@ module PuppetdbForeman
 
     initializer 'puppetdb_foreman.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :puppetdb_foreman do
-        requires_foreman '> 1.11'
+        requires_foreman '>= 1.11'
         security_block :puppetdb_foreman do
           permission :view_puppetdb_dashboard, {:'puppetdb_foreman/puppetdb' => [:index]}
         end
