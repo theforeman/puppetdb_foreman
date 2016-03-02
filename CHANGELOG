@@ -1,4 +1,6 @@
 2016-03-02	Daniel Lobato <elobatocs@gmail.com>
+	* Restrict to Foreman 1.11+
+	* Bump version to 1.0.0
 	* Update minimum Foreman version
 
 2016-01-08	Daniel Lobato <elobatocs@gmail.com>
