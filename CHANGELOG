@@ -1,4 +1,11 @@
+2016-03-02	Daniel Lobato <elobatocs@gmail.com>
+	* Update minimum Foreman version
+
+2016-01-08	Daniel Lobato <elobatocs@gmail.com>
+	* Rails 4 & Patternfly compatibility
+
 2015-11-11	Daniel Lobato <elobatocs@gmail.com>
+	* Bump version to 0.2.0
 	* Bump version to 0.2.0
 	* Load version from Ruby constant
 
