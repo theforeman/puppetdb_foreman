@@ -1,6 +1,8 @@
 module PuppetdbForeman
   class PuppetdbController < ApplicationController
 
+    protect_from_forgery :except => :index
+
     def index
       begin
         uri = URI.parse(Setting[:puppetdb_dashboard_address])
