@@ -1,4 +1,8 @@
+2016-04-19	Mathieu Parent <math.parent@gmail.com>
+	* Fix PuppetDB Dashboard not working with 1.11+
+
 2016-03-02	Daniel Lobato <elobatocs@gmail.com>
+	* Allow plugin to be used with Foreman 1.11.0
 	* Restrict to Foreman 1.11+
 	* Bump version to 1.0.0
 	* Update minimum Foreman version
