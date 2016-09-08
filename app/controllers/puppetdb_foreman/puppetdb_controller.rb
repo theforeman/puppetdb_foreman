@@ -17,7 +17,7 @@ module PuppetdbForeman
         @proxy_error = "Problem connecting to host #{uri.host} on port #{uri.port}"
         render :action => :error, :layout => true
       rescue Errno::ECONNREFUSED => error
-        @proxy_error = "#{uri.host} refused our conneciton"
+        @proxy_error = "#{uri.host} refused our connection"
         render :action => :error, :layout => true
       rescue EOFError => error
         @proxy_error = "Don't use ssl (https)"
