@@ -18,9 +18,9 @@ Feel free to raise issues, ask for features, anything, in the github repository 
 
 **From packages**
 
-Set up the appropriate repository by following [these instructions](http://theforeman.org/manuals/1.6/index.html#3.3InstallFromPackages)
+Set up the appropriate repository by following [these instructions](https://theforeman.org/plugins/)
 
-*RPM* users can install the `ruby193-rubygem-puppetdb_foreman` (SCL) or `rubygem-puppetdb_foreman` (non SCL) packages.
+*RPM* users can install the `tfm-rubygem-puppetdb_foreman` (el7) or `rubygem-puppetdb_foreman` (f24) packages.
 
 *deb* users can install the `ruby-puppetdb-foreman` package.
 

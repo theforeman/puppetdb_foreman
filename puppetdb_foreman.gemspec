@@ -1,6 +1,5 @@
-require 'rake'
-$LOAD_PATH.push File.expand_path('../lib', __FILE__)
-require 'puppetdb_foreman/version'
+require File.expand_path('../lib/puppetdb_foreman/version', __FILE__)
+
 Gem::Specification.new do |s|
   s.name        = 'puppetdb_foreman'
   s.version     = PuppetdbForeman::VERSION

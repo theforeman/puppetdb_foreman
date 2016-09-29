@@ -5,7 +5,7 @@ module PuppetdbForeman
       require_dependency File.expand_path("../../../app/models/setting/puppetdb.rb", __FILE__) if (Setting.table_exists? rescue(false))
     end
 
-    initializer 'puppetdb_foreman.register_plugin', :after=> :finisher_hook do |app|
+    initializer 'puppetdb_foreman.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :puppetdb_foreman do
         requires_foreman '>= 1.11'
         security_block :puppetdb_foreman do
