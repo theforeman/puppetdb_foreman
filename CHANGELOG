@@ -1,3 +1,12 @@
+2016-09-29	Daniel Lobato Garcia <me@daniellobato.me>
+	* Fix plugin initialization hook
+
+2016-09-08	Koen Torfs <fwdIT@users.noreply.github.com>
+	* Fixes typo : conneciton -> connection (#23)
+
+2016-04-19	Daniel Lobato <elobatocs@gmail.com>
+	* Version 1.0.3
+
 2016-04-19	Mathieu Parent <math.parent@gmail.com>
 	* Fix PuppetDB Dashboard not working with 1.11+
 
