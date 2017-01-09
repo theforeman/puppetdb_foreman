@@ -14,22 +14,47 @@ module PuppetdbForeman
             uri = URI.parse(Setting[:puppetdb_address])
             req = Net::HTTP::Post.new(uri.path)
             req['Accept'] = 'application/json'
-            req.body = 'payload={"command":"deactivate node","version":1,"payload":"\"'+name+'\""}'
+            req.content_type = 'application/json'
+
             res             = Net::HTTP.new(uri.host, uri.port)
             res.use_ssl     = uri.scheme == 'https'
             if res.use_ssl?
-              if Setting[:ssl_ca_file]
-                res.ca_file = Setting[:ssl_ca_file]
+              if Setting[:puppetdb_ssl_ca_file]
+                res.ca_file = Setting[:puppetdb_ssl_ca_file]
                 res.verify_mode = OpenSSL::SSL::VERIFY_PEER
               else
                 res.verify_mode = OpenSSL::SSL::VERIFY_NONE
               end
-              if Setting[:ssl_certificate] && Setting[:ssl_priv_key]
-                res.cert = OpenSSL::X509::Certificate.new(File.read(Setting[:ssl_certificate]))
-                res.key  = OpenSSL::PKey::RSA.new(File.read(Setting[:ssl_priv_key]), nil)
+              if Setting[:puppetdb_ssl_certificate] &&
+                Setting[:puppetdb_ssl_private_key]
+                res.cert = OpenSSL::X509::Certificate.new(
+                  File.read(Setting[:puppetdb_ssl_certificate]))
+                res.key  = OpenSSL::PKey::RSA.new(
+                  File.read(Setting[:puppetdb_ssl_private_key]), nil)
               end
+
+            end
+
+            if uri.path.start_with?("/pdb")
+              logger.debug "Using PuppetDB API v3"
+              req.body = {
+                 "command" => "deactivate node",
+                 "version" => 3,
+                 "payload" => {
+                   "certname" => name,
+                   "producer_timestamp" => "#{Time.now.iso8601}"
+                 }
+               }.to_json
+            else
+              logger.debug "Using PuppetDB API v1"
+              req.body = {
+                "command" => "deactivate node",
+                "version" => 1,
+                "payload" => name
+              }.to_json
             end
             res.start { |http| http.request(req) }
+
           rescue => e
             errors.add(:base, _("Could not deactivate host on PuppetDB: #{e}"))
           end
