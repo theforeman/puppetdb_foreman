@@ -1,4 +1,8 @@
+2017-01-12	Daehyung Lee <netman2k@users.noreply.github.com>
+	* Modified codes to support PuppetDB 4
+
 2016-09-29	Daniel Lobato Garcia <me@daniellobato.me>
+	* Release 1.0.4
 	* Fix plugin initialization hook
 
 2016-09-08	Koen Torfs <fwdIT@users.noreply.github.com>
