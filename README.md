@@ -46,11 +46,16 @@ puppetdb_foreman uses [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.
 Go to Administer > Settings > PuppetDB and set `puppetdb_address` with your PuppetDB address, `puppetdb_dashboard_address` (optional) to proxy the dashboard, `puppetdb_enabled` to either true or false if you want to enable or disable PuppetDB integration. Obviously you will need a PuppetDB instance at the address you provide.
 
 Alternatively you can put your settings in `config/settings.yaml`. Please keep in mind these will be overwritten if changed in the application, and if the application is rebooted, YAML rules will overwrite again your manually changed settings. Hence passing your settings in this format is discouraged, but allowed.
+
+for PuppetDB 4
 ```yaml
 :puppetdb:
   :enabled: true
-  :address: 'https://puppetdb:8081/v2/commands'
-  :dashboard_address: 'http://puppetdb:8080/dashboard'
+  :address: 'https://puppetdb:8081/pdb/cmd/v1'
+  :dashboard_address: 'http://puppetdb:8080/pdb/dashboard'
+  :puppetdb_ssl_ca_file: '/etc/puppetlabs/puppet/ssl/certs/ca.pem'
+  :puppetdb_ssl_certificate: '/etc/puppetlabs/puppet/ssl/certs/FQDN.pem'
+  :puppetdb_ssl_private_key: '/etc/puppetlabs/puppet/ssl/private_keys/FQDN.pem'
 ```
 
 You can find the dashboard under Monitor > PuppetDB dashboard. Only administrators and users with a role `view_puppetdb_dashboard` will be able to access it. Aside from convenience, the PuppetDB dashboard cannot be served over HTTPS, you can restrict your dashboard requests to only Foreman boxes and serve it securely to your users through HTTPS in Foreman.
