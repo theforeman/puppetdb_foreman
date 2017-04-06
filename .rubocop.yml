@@ -1,0 +1,42 @@
+AllCops:
+  TargetRubyVersion: 2.0
+
+Rails:
+  Enabled: true
+
+# Don't enforce documentation
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/LineLength:
+  Max: 180
+  Exclude:
+    - 'puppetdb_foreman.gemspec'
+
+Style/Next:
+  Enabled: false
+
+# Support both ruby19 and hash_rockets
+Style/HashSyntax:
+  Enabled: false
+
+# SupportedStyles: format, sprintf, percent
+Style/FormatString:
+  Enabled: false
+
+Style/MethodName:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 25
+
+Rails/Date:
+  Exclude:
+    - 'puppetdb_foreman.gemspec'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*'
