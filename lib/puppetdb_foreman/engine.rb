@@ -15,17 +15,29 @@ module PuppetdbForeman
         requires_foreman '>= 1.11'
         security_block :puppetdb_foreman do
           permission :view_puppetdb_dashboard, :'puppetdb_foreman/puppetdb' => [:index]
+          permission :view_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:index]
+          permission :destroy_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:destroy]
         end
         role 'PuppetDB Dashboard', [:view_puppetdb_dashboard]
+        role 'PuppetDB Node Viewer', [:view_puppetdb_nodes]
+        role 'PuppetDB Node Manager', [:view_puppetdb_nodes, :destroy_puppetdb_nodes]
         menu :top_menu, :puppetdb, :caption => N_('PuppetDB Dashboard'),
                                    :url_hash => { :controller => 'puppetdb_foreman/puppetdb', :action => 'index', :puppetdb => 'puppetdb' },
                                    :parent => :monitor_menu,
-                                   :last => true
+                                   :last => :true
+        menu :top_menu, :nodes, :caption => N_('PuppetDB Nodes'),
+                                   :url_hash => { :controller => 'puppetdb_foreman/nodes', :action => 'index' },
+                                   :parent => :monitor_menu,
+                                   :after => :puppetdb
       end
     end
 
     config.to_prepare do
-      Host::Managed.send :include, PuppetdbForeman::HostExtensions
+      begin
+        Host::Managed.send :include, PuppetdbForeman::HostExtensions
+      rescue => e
+        Rails.logger.warn "PuppetdbForeman: skipping engine hook (#{e})"
+      end
     end
   end
 end

@@ -20,6 +20,14 @@ module PuppetdbClient
       }.to_json
     end
 
+    def command_url
+      '/pdb/cmd/v1'
+    end
+
+    def nodes_url
+      '/pdb/query/v4/nodes'
+    end
+
     private
 
     def producer_timestamp

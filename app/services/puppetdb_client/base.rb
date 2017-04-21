@@ -11,7 +11,12 @@ module PuppetdbClient
     end
 
     def deactivate_node(nodename)
-      post(uri.path, deactivate_node_payload(nodename))
+      post(command_url, deactivate_node_payload(nodename))
+    end
+
+    def query_nodes
+      nodes = parse(get(nodes_url))
+      nodes.map { |node| node["name"] }
     end
 
     private
@@ -23,6 +28,12 @@ module PuppetdbClient
       req
     end
 
+    def get_request(endpoint)
+      req = Net::HTTP::Get.new(endpoint)
+      req['Accept'] = 'application/json'
+      req
+    end
+
     def post(endpoint, payload)
       req = post_request(endpoint, payload)
       connection.start do |http|
@@ -31,9 +42,21 @@ module PuppetdbClient
       end
     end
 
+    def get(endpoint)
+      req = get_request(endpoint)
+      connection.start do |http|
+        response = http.request(req)
+        response.body
+      end
+    end
+
+    def parse(body)
+      JSON.parse(body)
+    end
+
     def response_ok?(response)
       raise Foreman::Exception.new(N_('Failed to deactivate node on PuppetDB: %s'), response.body) unless response.code == '200'
-      body = JSON.parse(response.body)
+      body = parse(response.body)
       logger.info "Submitted deactivate_node job to PuppetDB with UUID: #{body['uuid']}"
       true
     end
@@ -48,7 +71,7 @@ module PuppetdbClient
         else
           res.verify_mode = OpenSSL::SSL::VERIFY_NONE
         end
-        if ssl_certificate_file && ssl_private_key_file
+        if ssl_certificate_file.present? && ssl_private_key_file.present?
           res.cert = ssl_certificate
           res.key  = ssl_private_key
         end
