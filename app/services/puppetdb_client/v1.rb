@@ -9,5 +9,13 @@ module PuppetdbClient
       }.to_json
       'payload=' + payload
     end
+
+    def command_url
+      '/v3/commands'
+    end
+
+    def nodes_url
+      '/v3/nodes'
+    end
   end
 end
