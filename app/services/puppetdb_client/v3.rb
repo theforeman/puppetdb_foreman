@@ -1,11 +1,5 @@
 module PuppetdbClient
   class V3 < Base
-    def post_request(endpoint, payload)
-      req = super
-      req.content_type = 'application/json'
-      req
-    end
-
     # The payload is formatted as a JSON map.
     # certname: The name of the node for which the catalog was compiled.
     # producer_timestamp: The time of command submission.
@@ -33,6 +27,12 @@ module PuppetdbClient
     end
 
     private
+
+    def post_options
+      {
+        content_type: :json
+      }
+    end
 
     def producer_timestamp
       Time.now.iso8601.to_s
