@@ -51,3 +51,6 @@ Style/ClassAndModuleChildren:
 Style/RegexpLiteral:
   Exclude:
     - 'config/routes.rb'
+
+Rails/HttpPositionalArguments:
+  Enabled: false
