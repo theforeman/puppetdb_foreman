@@ -6,7 +6,7 @@ module PuppetdbForeman
       after_build :deactivate_host
 
       def deactivate_host
-        logger.debug "Deactivating host #{name} in Puppetdb"
+        Foreman::Logging.logger('puppetdb_foreman').debug "Deactivating host #{name} in Puppetdb"
         return false unless puppetdb_configured?
 
         if puppetdb_enabled?
@@ -14,7 +14,6 @@ module PuppetdbForeman
             uri = URI.parse(Setting[:puppetdb_address])
             req = Net::HTTP::Post.new(uri.path)
             req['Accept'] = 'application/json'
-            req.content_type = 'application/json'
 
             res             = Net::HTTP.new(uri.host, uri.port)
             res.use_ssl     = uri.scheme == 'https'
@@ -36,7 +35,8 @@ module PuppetdbForeman
             end
 
             if uri.path.start_with?("/pdb")
-              logger.debug "Using PuppetDB API v3"
+              Foreman::Logging.logger('puppetdb_foreman').debug "Using PuppetDB API v3"
+              req.content_type = 'application/json'
               req.body = {
                  "command" => "deactivate node",
                  "version" => 3,
@@ -46,14 +46,14 @@ module PuppetdbForeman
                  }
                }.to_json
             else
-              logger.debug "Using PuppetDB API v1"
-              req.body = {
-                "command" => "deactivate node",
-                "version" => 1,
-                "payload" => name
-              }.to_json
+              Foreman::Logging.logger('puppetdb_foreman').debug "Using PuppetDB API v1"
+              req.body = 'payload={"command":"deactivate node","version":1,"payload":"\"'+name+'\""}'
             end
-            res.start { |http| http.request(req) }
+            res.start do |http|
+                response = http.request(req)
+                Foreman::Logging.logger('puppetdb_foreman').debug ("Response: #{response.body}")
+                Foreman::Logging.logger('puppetdb_foreman').debug ("Response Code: #{response.code}")
+            end
 
           rescue => e
             errors.add(:base, _("Could not deactivate host on PuppetDB: #{e}"))
