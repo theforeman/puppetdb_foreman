@@ -24,9 +24,7 @@ class NodesControllerTest < ActionController::TestCase
     let(:node) { 'test.example.com' }
     test 'deactivating a node in puppetdb' do
       ::PuppetdbClient::V3.any_instance.expects(:deactivate_node).with(node).returns(true)
-      delete :destroy, {
-        :id => node
-      }, set_session_user
+      delete :destroy, { :id => node }, set_session_user
       assert_response :found
       assert_redirected_to puppetdb_foreman_nodes_path
       assert_nil flash[:error]

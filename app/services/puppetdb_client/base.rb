@@ -12,8 +12,9 @@ module PuppetdbClient
 
     def deactivate_node(nodename)
       body = parse(post(command_url, deactivate_node_payload(nodename)))
-      logger.info "Submitted deactivate_node job to PuppetDB with UUID: #{body['uuid']}"
-      true
+      uuid = body['uuid']
+      logger.info "Submitted deactivate_node job to PuppetDB with UUID: #{uuid}"
+      uuid
     end
 
     def query_nodes

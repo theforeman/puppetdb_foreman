@@ -8,6 +8,7 @@ class PuppetdbTest < ActiveSupport::TestCase
   end
 
   let(:client) { Puppetdb.client }
+  let(:uuid) { SecureRandom.uuid }
 
   context 'with V1 API' do
     setup do
@@ -18,9 +19,9 @@ class PuppetdbTest < ActiveSupport::TestCase
       stub_request(:post, 'https://localhost:8080/v3/commands')
         .with(:body => 'payload={"command":"deactivate node","version":1,"payload":"\\"www.example.com\\""}',
               :headers => { 'Accept' => 'application/json' })
-        .to_return(:status => 200, :body => "{\"uuid\" : \"#{SecureRandom.uuid}\"}", :headers => { 'Content-Type' => 'application/json; charset=utf-8' })
+        .to_return(:status => 200, :body => "{\"uuid\" : \"#{uuid}\"}", :headers => { 'Content-Type' => 'application/json; charset=utf-8' })
 
-      assert_equal true, client.deactivate_node('www.example.com')
+      assert_equal uuid, client.deactivate_node('www.example.com')
     end
 
     test 'query_nodes' do
@@ -55,9 +56,9 @@ class PuppetdbTest < ActiveSupport::TestCase
       stub_request(:post, 'https://puppetdb:8081/pdb/cmd/v1')
         .with(:body => "{\"command\":\"deactivate node\",\"version\":3,\"payload\":{\"certname\":\"www.example.com\",\"producer_timestamp\":\"#{producer_timestamp}\"}}",
               :headers => { 'Accept' => 'application/json', 'Content-Type' => 'application/json' })
-        .to_return(:status => 200, :body => "{\"uuid\" : \"#{SecureRandom.uuid}\"}", :headers => { 'Content-Type' => 'application/json; charset=utf-8' })
+        .to_return(:status => 200, :body => "{\"uuid\" : \"#{uuid}\"}", :headers => { 'Content-Type' => 'application/json; charset=utf-8' })
 
-      assert_equal true, client.deactivate_node('www.example.com')
+      assert_equal uuid, client.deactivate_node('www.example.com')
     end
 
     test 'query_nodes' do
