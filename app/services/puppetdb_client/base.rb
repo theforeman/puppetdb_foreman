@@ -16,7 +16,7 @@ module PuppetdbClient
 
     def query_nodes
       nodes = parse(get(nodes_url))
-      nodes.map { |node| node["name"] }
+      nodes.map { |node| node['name'] }
     end
 
     private

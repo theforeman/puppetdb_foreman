@@ -26,9 +26,9 @@ module PuppetdbForeman
                                    :parent => :monitor_menu,
                                    :last => :true
         menu :top_menu, :nodes, :caption => N_('PuppetDB Nodes'),
-                                   :url_hash => { :controller => 'puppetdb_foreman/nodes', :action => 'index' },
-                                   :parent => :monitor_menu,
-                                   :after => :puppetdb
+                                :url_hash => { :controller => 'puppetdb_foreman/nodes', :action => 'index' },
+                                :parent => :monitor_menu,
+                                :after => :puppetdb
       end
     end
 

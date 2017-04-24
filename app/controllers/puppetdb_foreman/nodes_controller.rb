@@ -14,7 +14,7 @@ module PuppetdbForeman
 
     def destroy
       Puppetdb.client.deactivate_node(@node)
-      process_success :success_msg => _('Deactivated node %s in PuppetDB') % (@node), :success_redirect => puppetdb_foreman_nodes_path
+      process_success :success_msg => _('Deactivated node %s in PuppetDB') % @node, :success_redirect => puppetdb_foreman_nodes_path
     rescue => e
       process_error(:redirect => puppetdb_foreman_nodes_path, :error_msg => _('Failed to deactivate node in PuppetDB: %s') % e.message)
     end

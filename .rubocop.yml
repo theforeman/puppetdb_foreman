@@ -12,7 +12,7 @@ Metrics/MethodLength:
   Max: 20
 
 Metrics/LineLength:
-  Max: 180
+  Max: 221
   Exclude:
     - 'puppetdb_foreman.gemspec'
 
@@ -31,7 +31,7 @@ Style/MethodName:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 25
+  Max: 38
 
 Rails/Date:
   Exclude:
@@ -40,3 +40,14 @@ Rails/Date:
 Metrics/BlockLength:
   Exclude:
     - 'test/**/*'
+
+Metrics/MethodLength:
+  Max: 22
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/models/setting/puppetdb.rb'
+
+Style/RegexpLiteral:
+  Exclude:
+    - 'config/routes.rb'
