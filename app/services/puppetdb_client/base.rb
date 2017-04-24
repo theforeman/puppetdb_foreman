@@ -11,7 +11,9 @@ module PuppetdbClient
     end
 
     def deactivate_node(nodename)
-      post(command_url, deactivate_node_payload(nodename))
+      body = parse(post(command_url, deactivate_node_payload(nodename)))
+      logger.info "Submitted deactivate_node job to PuppetDB with UUID: #{body['uuid']}"
+      true
     end
 
     def query_nodes
@@ -25,62 +27,74 @@ module PuppetdbClient
 
     private
 
-    def post_request(endpoint, payload)
-      req = Net::HTTP::Post.new(endpoint)
-      req['Accept'] = 'application/json'
-      req.body = payload
-      req
+    def connection(url)
+      RestClient::Resource.new(
+        request_url(url),
+        request_options
+      )
     end
 
-    def get_request(endpoint)
-      req = Net::HTTP::Get.new(endpoint)
-      req['Accept'] = 'application/json'
-      req
+    def request_url(url)
+      URI.join(baseurl, url).to_s
     end
 
-    def post(endpoint, payload)
-      req = post_request(endpoint, payload)
-      connection.start do |http|
-        response = http.request(req)
-        response_ok?(response)
-      end
+    def baseurl
+      "#{uri.scheme}://#{uri.host}:#{uri.port}"
     end
 
     def get(endpoint)
-      req = get_request(endpoint)
-      connection.start do |http|
-        response = http.request(req)
-        response.body
-      end
+      logger.debug "PuppetdbClient: GET request to #{endpoint}"
+      connection(endpoint).get.body
+    end
+
+    def post(endpoint, payload)
+      logger.debug "PuppetdbClient: POST request to #{endpoint} with payload: #{payload}"
+      connection(endpoint).post(payload, post_options).body
     end
 
     def parse(body)
       JSON.parse(body)
     end
 
-    def response_ok?(response)
-      raise Foreman::Exception.new(N_('Failed to deactivate node on PuppetDB: %s'), response.body) unless response.code == '200'
-      body = parse(response.body)
-      logger.info "Submitted deactivate_node job to PuppetDB with UUID: #{body['uuid']}"
-      true
+    def post_options
+      {}
     end
 
-    def connection
-      res             = Net::HTTP.new(uri.host, uri.port)
-      res.use_ssl     = uri.scheme == 'https'
-      if res.use_ssl?
-        if ssl_ca_file
-          res.ca_file = ssl_ca_file
-          res.verify_mode = OpenSSL::SSL::VERIFY_PEER
-        else
-          res.verify_mode = OpenSSL::SSL::VERIFY_NONE
-        end
-        if ssl_certificate_file.present? && ssl_private_key_file.present?
-          res.cert = ssl_certificate
-          res.key  = ssl_private_key
-        end
+    def request_options
+      {
+        headers: request_headers
+      }.merge(auth_options).merge(ssl_options)
+    end
+
+    def request_headers
+      {
+        'Accept' => 'application/json'
+      }
+    end
+
+    def ssl_options
+      if ssl_ca_file
+        {
+          ssl_ca_file: ssl_ca_file,
+          verify_ssl: true
+        }
+      else
+        {
+          verify_ssl: false
+        }
       end
-      res
+    end
+
+    def auth_options
+      return {} unless certificate_request?
+      {
+        ssl_client_cert: ssl_certificate,
+        ssl_client_key: ssl_private_key
+      }
+    end
+
+    def certificate_request?
+      ssl_certificate_file.present? && ssl_private_key_file.present?
     end
 
     def ssl_certificate
