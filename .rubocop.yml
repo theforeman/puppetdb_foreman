@@ -39,6 +39,7 @@ Rails/Date:
 
 Metrics/BlockLength:
   Exclude:
+    - 'config/routes.rb'
     - 'test/**/*'
 
 Metrics/MethodLength:
@@ -46,7 +47,8 @@ Metrics/MethodLength:
 
 Style/ClassAndModuleChildren:
   Exclude:
-    - 'app/models/setting/puppetdb.rb'
+    - 'app/models/setting/*'
+    - 'test/controllers/api/v2/*'
 
 Style/RegexpLiteral:
   Exclude:

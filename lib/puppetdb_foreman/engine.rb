@@ -13,15 +13,23 @@ module PuppetdbForeman
     initializer 'puppetdb_foreman.register_plugin', :before => :finisher_hook do |_app|
       Foreman::Plugin.register :puppetdb_foreman do
         requires_foreman '>= 1.11'
+
+        apipie_documented_controllers ["#{PuppetdbForeman::Engine.root}/app/controllers/api/v2/*.rb"]
+
         security_block :puppetdb_foreman do
           permission :view_puppetdb_dashboard, :'puppetdb_foreman/puppetdb' => [:index]
-          permission :view_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:index]
-          permission :destroy_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:destroy]
-          permission :import_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:import]
+          permission :view_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:index],
+                                           :'api/v2/puppetdb_nodes' => [:index, :unknown]
+          permission :destroy_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:destroy],
+                                              :'api/v2/puppetdb_nodes' => [:destroy]
+          permission :import_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:import],
+                                             :'api/v2/puppetdb_nodes' => [:import]
         end
+
         role 'PuppetDB Dashboard', [:view_puppetdb_dashboard]
         role 'PuppetDB Node Viewer', [:view_puppetdb_nodes]
         role 'PuppetDB Node Manager', [:view_puppetdb_nodes, :destroy_puppetdb_nodes, :import_puppetdb_nodes]
+
         menu :top_menu, :puppetdb, :caption => N_('PuppetDB Dashboard'),
                                    :url_hash => { :controller => 'puppetdb_foreman/puppetdb', :action => 'index', :puppetdb => 'puppetdb' },
                                    :parent => :monitor_menu,
