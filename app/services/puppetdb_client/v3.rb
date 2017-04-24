@@ -28,6 +28,10 @@ module PuppetdbClient
       '/pdb/query/v4/nodes'
     end
 
+    def facts_url
+      '/pdb/query/v4/facts'
+    end
+
     private
 
     def producer_timestamp

@@ -17,5 +17,9 @@ module PuppetdbClient
     def nodes_url
       '/v3/nodes'
     end
+
+    def facts_url
+      '/v3/facts'
+    end
   end
 end

@@ -54,3 +54,7 @@ Style/RegexpLiteral:
 
 Rails/HttpPositionalArguments:
   Enabled: false
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'app/services/puppetdb_host.rb'

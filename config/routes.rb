@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   namespace :puppetdb_foreman do
     constraints(:id => %r{[^\/]+}) do
-      resources :nodes, :only => [:index, :destroy]
+      resources :nodes, :only => [:index, :destroy] do
+        member do
+          put 'import'
+        end
+      end
     end
   end
 end

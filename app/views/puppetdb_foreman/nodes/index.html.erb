@@ -47,6 +47,7 @@
               <td class="ellipsis"><%= node %></td>
               <td>
                 <%= action_buttons(
+                  (display_link_if_authorized(_("Import"), hash_for_import_puppetdb_foreman_node_path(:id => node), :method => :put)),
                   (display_delete_if_authorized(hash_for_puppetdb_foreman_node_path(:id => node), :class => 'delete', :text => _('Deactivate')))
                 ) %>
             </td>
