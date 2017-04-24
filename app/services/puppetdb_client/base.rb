@@ -19,6 +19,10 @@ module PuppetdbClient
       nodes.map { |node| node['name'] }
     end
 
+    def facts(nodename)
+      parse(get("#{facts_url}?#{URI.escape("query=[\"=\", \"certname\", \"#{nodename}\"]")}"))
+    end
+
     private
 
     def post_request(endpoint, payload)

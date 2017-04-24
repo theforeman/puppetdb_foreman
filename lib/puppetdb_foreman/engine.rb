@@ -17,10 +17,11 @@ module PuppetdbForeman
           permission :view_puppetdb_dashboard, :'puppetdb_foreman/puppetdb' => [:index]
           permission :view_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:index]
           permission :destroy_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:destroy]
+          permission :import_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:import]
         end
         role 'PuppetDB Dashboard', [:view_puppetdb_dashboard]
         role 'PuppetDB Node Viewer', [:view_puppetdb_nodes]
-        role 'PuppetDB Node Manager', [:view_puppetdb_nodes, :destroy_puppetdb_nodes]
+        role 'PuppetDB Node Manager', [:view_puppetdb_nodes, :destroy_puppetdb_nodes, :import_puppetdb_nodes]
         menu :top_menu, :puppetdb, :caption => N_('PuppetDB Dashboard'),
                                    :url_hash => { :controller => 'puppetdb_foreman/puppetdb', :action => 'index', :puppetdb => 'puppetdb' },
                                    :parent => :monitor_menu,

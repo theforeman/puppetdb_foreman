@@ -1,0 +1,513 @@
+[ {
+  "value" : "Other",
+  "name" : "type",
+  "certname" : "host.example.com"
+}, {
+  "value" : "x86_64",
+  "name" : "hardwareisa",
+  "certname" : "host.example.com"
+}, {
+  "value" : "VMware",
+  "name" : "blockdevice_sda_vendor",
+  "certname" : "host.example.com"
+}, {
+  "value" : "VMware Virtual Platform",
+  "name" : "productname",
+  "certname" : "host.example.com"
+}, {
+  "value" : "host.example.com",
+  "name" : "clientcert",
+  "certname" : "host.example.com"
+}, {
+  "value" : "x86_64",
+  "name" : "architecture",
+  "certname" : "host.example.com"
+}, {
+  "value" : "host.example.com",
+  "name" : "fqdn",
+  "certname" : "host.example.com"
+}, {
+  "value" : "x86_64-linux",
+  "name" : "rubyplatform",
+  "certname" : "host.example.com"
+}, {
+  "value" : "/dev/sda3",
+  "name" : "lvm_pv_0",
+  "certname" : "host.example.com"
+}, {
+  "value" : "x86_64",
+  "name" : "hardwaremodel",
+  "certname" : "host.example.com"
+}, {
+  "value" : "440BX Desktop Reference Platform",
+  "name" : "boardproductname",
+  "certname" : "host.example.com"
+}, {
+  "value" : "Linux",
+  "name" : "kernel",
+  "certname" : "host.example.com"
+}, {
+  "value" : "vmware",
+  "name" : "virtual",
+  "certname" : "host.example.com"
+}, {
+  "value" : "None",
+  "name" : "boardserialnumber",
+  "certname" : "host.example.com"
+}, {
+  "value" : "/root",
+  "name" : "root_home",
+  "certname" : "host.example.com"
+}, {
+  "value" : "/var/lib/puppet",
+  "name" : "puppet_vardir",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1 day",
+  "name" : "uptime",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1",
+  "name" : "uptime_days",
+  "certname" : "host.example.com"
+}, {
+  "value" : "sda",
+  "name" : "blockdevices",
+  "certname" : "host.example.com"
+}, {
+  "value" : "6.00",
+  "name" : "bios_version",
+  "certname" : "host.example.com"
+}, {
+  "value" : "host",
+  "name" : "hostname",
+  "certname" : "host.example.com"
+}, {
+  "value" : "Intel Corporation",
+  "name" : "boardmanufacturer",
+  "certname" : "host.example.com"
+}, {
+  "value" : "2.4.6",
+  "name" : "facterversion",
+  "certname" : "host.example.com"
+}, {
+  "value" : "255.255.255.0",
+  "name" : "netmask_eth0",
+  "certname" : "host.example.com"
+}, {
+  "value" : "root",
+  "name" : "id",
+  "certname" : "host.example.com"
+}, {
+  "value" : "root",
+  "name" : "gid",
+  "certname" : "host.example.com"
+}, {
+  "value" : "Virtual disk",
+  "name" : "blockdevice_sda_model",
+  "certname" : "host.example.com"
+}, {
+  "value" : "Phoenix Technologies LTD",
+  "name" : "bios_vendor",
+  "certname" : "host.example.com"
+}, {
+  "value" : "255.255.255.0",
+  "name" : "netmask",
+  "certname" : "host.example.com"
+}, {
+  "value" : "eth0,lo",
+  "name" : "interfaces",
+  "certname" : "host.example.com"
+}, {
+  "value" : "tst",
+  "name" : "project",
+  "certname" : "host.example.com"
+}, {
+  "value" : "lxsbx",
+  "name" : "app_tier",
+  "certname" : "host.example.com"
+}, {
+  "value" : "127.0.0.0",
+  "name" : "network_lo",
+  "certname" : "host.example.com"
+}, {
+  "value" : "127.0.0.1",
+  "name" : "ipaddress_lo",
+  "certname" : "host.example.com"
+}, {
+  "value" : "ps -ef",
+  "name" : "ps",
+  "certname" : "host.example.com"
+}, {
+  "value" : "vg0",
+  "name" : "lvm_vg_0",
+  "certname" : "host.example.com"
+}, {
+  "value" : "255.0.0.0",
+  "name" : "netmask_lo",
+  "certname" : "host.example.com"
+}, {
+  "value" : "VMware, Inc.",
+  "name" : "manufacturer",
+  "certname" : "host.example.com"
+}, {
+  "value" : "RedHat",
+  "name" : "osfamily",
+  "certname" : "host.example.com"
+}, {
+  "value" : "RedHat",
+  "name" : "operatingsystem",
+  "certname" : "host.example.com"
+}, {
+  "value" : "example.com",
+  "name" : "domain",
+  "certname" : "host.example.com"
+}, {
+  "value" : "/var/lib/puppet/ssl/certs/ca.pem",
+  "name" : "icinga2_puppet_localcacert",
+  "certname" : "host.example.com"
+}, {
+  "value" : "false",
+  "name" : "haproxy_running",
+  "certname" : "host.example.com"
+}, {
+  "value" : "10000",
+  "name" : "icinga_net_speed",
+  "certname" : "host.example.com"
+}, {
+  "value" : "/var/lib/puppet/ssl/private_keys/host.example.com.pem",
+  "name" : "icinga2_puppet_hostprivkey",
+  "certname" : "host.example.com"
+}, {
+  "value" : "/var/lib/puppet/ssl/certs/host.example.com.pem",
+  "name" : "icinga2_puppet_hostcert",
+  "certname" : "host.example.com"
+}, {
+  "value" : "{\"sda1\":{\"filesystem\":\"xfs\",\"mount\":\"/boot\",\"size\":\"524288\",\"uuid\":\"15dd3da4-297e-42ac-b664-61a047749eb2\"},\"sda2\":{\"filesystem\":\"swap\",\"size\":\"4096000\",\"uuid\":\"887fc77e-0641-44c1-9a0f-1276b48f0277\"},\"sda3\":{\"filesystem\":\"LVM2_member\",\"size\":\"100235264\"}}",
+  "name" : "partitions",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.78 GB",
+  "name" : "memorysize",
+  "certname" : "host.example.com"
+}, {
+  "value" : "AAAAC3NzaC1lZDI1NTE5AAAAIEHNksP3IB3EA9dzyyfRp9VXmlAOiY6b73Qe5ho+Lumb",
+  "name" : "sshed25519key",
+  "certname" : "host.example.com"
+}, {
+  "value" : "SSHFP 3 1 3f73af41835b67f7002533c902f67f1c24f797e7\nSSHFP 3 2 7c30f377ccfc720e008865ddf0599d7fb9d466721cf802571770c448d6bed3d6",
+  "name" : "sshfp_ecdsa",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1823.50",
+  "name" : "memorysize_mb",
+  "certname" : "host.example.com"
+}, {
+  "value" : "xfs",
+  "name" : "filesystems",
+  "certname" : "host.example.com"
+}, {
+  "value" : "SSHFP 4 1 d0f358e40b9fcddbd321c63ba162ec94cc2f18a7\nSSHFP 4 2 cfce8d3cdf735a576a4c3f9dcf76731c40d072522281172ca174099348207e4c",
+  "name" : "sshfp_ed25519",
+  "certname" : "host.example.com"
+}, {
+  "value" : "2000.00",
+  "name" : "swapsize_mb",
+  "certname" : "host.example.com"
+}, {
+  "value" : "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBK/2/lxqQDzzGFsqwAzbd4bfKPNZMI8Cs7MGv9ukpa2QD2xY+HQJEa18wxRp7e35Lh9GHGZUMUZagICsdb3K7CY=",
+  "name" : "sshecdsakey",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.95 GB",
+  "name" : "swapsize",
+  "certname" : "host.example.com"
+}, {
+  "value" : "SSHFP 1 1 fbc64c11a810d8a6a36f0e1aeccc5fe35fd6c2a6\nSSHFP 1 2 cae32fec1ee04a664054df178802d773f31222eab8859ff523ec21b820975f3e",
+  "name" : "sshfp_rsa",
+  "certname" : "host.example.com"
+}, {
+  "value" : "3.8.7",
+  "name" : "clientversion",
+  "certname" : "host.example.com"
+}, {
+  "value" : "nss, pam",
+  "name" : "sssd_services",
+  "certname" : "host.example.com"
+}, {
+  "value" : "AAAAB3NzaC1yc2EAAAABIwAAAQEA7VeOSzgM6AnBcjvTpkCGg7vAOI8vaCi7N6i5SqqvF8g7TgmwkaEiOc8W8RvQi+BGQShwriJ8KYfp55iMAkgwfeZVu+CCdE7MAXjls4XNFbGtkUTTyiWdItLGucXFgEg3vzBKSFi+scU5JC0ZqtNRITS+tqqxFZOeK0b6yL42EAOYMbRKMoxlpfmKl0P1znvvElKySgxeZy59NdkFREPvC1DmGo+/o/+w577ZKjPH4tVm2vNabMdsUEWy99IvV1h2WBzsrqDz/uu5bLkv++nB6hN0/MsmI+bL3r+JV5HrrPOJVQS/F9wthrSZvxsS/B4WfqF3rxj+Bug4SzN3MmKbEw==",
+  "name" : "sshrsakey",
+  "certname" : "host.example.com"
+}, {
+  "value" : "3.8.7",
+  "name" : "puppetversion",
+  "certname" : "host.example.com"
+}, {
+  "value" : "3.10.0-514.16.1.el7.x86_64",
+  "name" : "kernelrelease",
+  "certname" : "host.example.com"
+}, {
+  "value" : "2000.00",
+  "name" : "swapfree_mb",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.95 GB",
+  "name" : "swapfree",
+  "certname" : "host.example.com"
+}, {
+  "value" : "[\"vmw_vsock_vmci_transport\",\"vsock\",\"intel_powerclamp\",\"coretemp\",\"iosf_mbi\",\"crc32_pclmul\",\"ghash_clmulni_intel\",\"ppdev\",\"aesni_intel\",\"lrw\",\"gf128mul\",\"glue_helper\",\"ablk_helper\",\"cryptd\",\"vmw_balloon\",\"pcspkr\",\"sg\",\"parport_pc\",\"parport\",\"shpchp\",\"vmw_vmci\",\"i2c_piix4\",\"ip_tables\",\"xfs\",\"libcrc32c\",\"ata_generic\",\"pata_acpi\",\"sd_mod\",\"crc_t10dif\",\"crct10dif_generic\",\"crct10dif_pclmul\",\"crct10dif_common\",\"crc32c_intel\",\"serio_raw\",\"vmwgfx\",\"drm_kms_helper\",\"syscopyarea\",\"sysfillrect\",\"sysimgblt\",\"fb_sys_fops\",\"ttm\",\"ata_piix\",\"vmxnet3\",\"mptspi\",\"scsi_transport_spi\",\"mptscsih\",\"mptbase\",\"drm\",\"i2c_core\",\"libata\",\"fjes\",\"dm_mirror\",\"dm_region_hash\",\"dm_log\",\"dm_mod\"]",
+  "name" : "kernel_modules",
+  "certname" : "host.example.com"
+}, {
+  "value" : "Intel(R) Xeon(R) CPU E5-2690 v2 @ 3.00GHz",
+  "name" : "processor0",
+  "certname" : "host.example.com"
+}, {
+  "value" : "3.10.0",
+  "name" : "kernelversion",
+  "certname" : "host.example.com"
+}, {
+  "value" : "eth0",
+  "name" : "default_interface",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.4.0",
+  "name" : "augeasversion",
+  "certname" : "host.example.com"
+}, {
+  "value" : "17acae4b",
+  "name" : "uniqueid",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.1.1.174",
+  "name" : "default_ipaddress",
+  "certname" : "host.example.com"
+}, {
+  "value" : "219",
+  "name" : "systemd_version",
+  "certname" : "host.example.com"
+}, {
+  "value" : "true",
+  "name" : "systemd",
+  "certname" : "host.example.com"
+}, {
+  "value" : "false",
+  "name" : "rvm_installed",
+  "certname" : "host.example.com"
+}, {
+  "value" : "systemd",
+  "name" : "init_system",
+  "certname" : "host.example.com"
+}, {
+  "value" : "VMware",
+  "name" : "block_vendor_sda",
+  "certname" : "host.example.com"
+}, {
+  "value" : "{\"count\":1,\"models\":[\"Intel(R) Xeon(R) CPU E5-2690 v2 @ 3.00GHz\"],\"physicalcount\":1}",
+  "name" : "processors",
+  "certname" : "host.example.com"
+}, {
+  "value" : "00:50:56:84:40:bb",
+  "name" : "macaddress",
+  "certname" : "host.example.com"
+}, {
+  "value" : "53687091200",
+  "name" : "blockdevice_sda_size",
+  "certname" : "host.example.com"
+}, {
+  "value" : "false",
+  "name" : "is_pe",
+  "certname" : "host.example.com"
+}, {
+  "value" : "/dev/sda3",
+  "name" : "lvm_vg_vg0_pvs",
+  "certname" : "host.example.com"
+}, {
+  "value" : "7.3",
+  "name" : "operatingsystemrelease",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1500",
+  "name" : "mtu_eth0",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1",
+  "name" : "physicalprocessorcount",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.1.1.174",
+  "name" : "ipaddress",
+  "certname" : "host.example.com"
+}, {
+  "value" : "",
+  "name" : "jenkins_plugins",
+  "certname" : "host.example.com"
+}, {
+  "value" : "curl",
+  "name" : "staging_http_get",
+  "certname" : "host.example.com"
+}, {
+  "value" : "2.0.0",
+  "name" : "rubyversion",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1",
+  "name" : "processorcount",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1",
+  "name" : "lvm_pvs",
+  "certname" : "host.example.com"
+}, {
+  "value" : "false",
+  "name" : "puppet_lvm",
+  "certname" : "host.example.com"
+}, {
+  "value" : "VMware-42 04 b2 1f b1 95 ac 51-59 3d 08 2d 25 2f ec e8",
+  "name" : "serialnumber",
+  "certname" : "host.example.com"
+}, {
+  "value" : "mptspi",
+  "name" : "block_driver_sda",
+  "certname" : "host.example.com"
+}, {
+  "value" : "",
+  "name" : "block_disks_sda",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.4.21",
+  "name" : "iptables_version",
+  "certname" : "host.example.com"
+}, {
+  "value" : "4204B21F-B195-AC51-593D-082D252FECE8",
+  "name" : "uuid",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1",
+  "name" : "lvm_vgs",
+  "certname" : "host.example.com"
+}, {
+  "value" : "3.10",
+  "name" : "kernelmajversion",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.8.6p7",
+  "name" : "sudoversion",
+  "certname" : "host.example.com"
+}, {
+  "value" : "systemd",
+  "name" : "service_provider",
+  "certname" : "host.example.com"
+}, {
+  "value" : "{\"family\":\"RedHat\",\"name\":\"RedHat\",\"release\":{\"full\":\"7.3\",\"major\":\"7\",\"minor\":\"3\"}}",
+  "name" : "os",
+  "certname" : "host.example.com"
+}, {
+  "value" : "/usr/local/share/ruby/site_ruby/",
+  "name" : "rubysitedir",
+  "certname" : "host.example.com"
+}, {
+  "value" : "true",
+  "name" : "lvm_support",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.4.21",
+  "name" : "ip6tables_version",
+  "certname" : "host.example.com"
+}, {
+  "value" : "false",
+  "name" : "selinux",
+  "certname" : "host.example.com"
+}, {
+  "value" : "sda",
+  "name" : "block_devices",
+  "certname" : "host.example.com"
+}, {
+  "value" : "65536",
+  "name" : "mtu_lo",
+  "certname" : "host.example.com"
+}, {
+  "value" : "00:50:56:84:40:bb",
+  "name" : "macaddress_eth0",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.1.1.174",
+  "name" : "ipaddress_eth0",
+  "certname" : "host.example.com"
+}, {
+  "value" : "false",
+  "name" : "clientnoop",
+  "certname" : "host.example.com"
+}, {
+  "value" : "true",
+  "name" : "is_virtual",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.1.1.0",
+  "name" : "network_eth0",
+  "certname" : "host.example.com"
+}, {
+  "value" : "09/21/2015",
+  "name" : "bios_release_date",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.1.1.254",
+  "name" : "defaultgw",
+  "certname" : "host.example.com"
+}, {
+  "value" : "yum",
+  "name" : "package_provider",
+  "certname" : "host.example.com"
+}, {
+  "value" : "00:50:56:84:40:bb",
+  "name" : "default_macaddress",
+  "certname" : "host.example.com"
+}, {
+  "value" : "7",
+  "name" : "operatingsystemmajrelease",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1",
+  "name" : "serverinstance",
+  "certname" : "host.example.com"
+}, {
+  "value" : "false",
+  "name" : "secure_lvm",
+  "certname" : "host.example.com"
+}, {
+  "value" : "not_installed",
+  "name" : "mongodb_is_master",
+  "certname" : "host.example.com"
+}, {
+  "value" : "/usr/bin:/bin:/usr/sbin:/sbin",
+  "name" : "path",
+  "certname" : "host.example.com"
+}, {
+  "value" : "35",
+  "name" : "uptime_hours",
+  "certname" : "host.example.com"
+}, {
+  "value" : "CEST",
+  "name" : "timezone",
+  "certname" : "host.example.com"
+}, {
+  "value" : "Fri Apr 21 14:56:46 CEST 2017",
+  "name" : "last_run",
+  "certname" : "host.example.com"
+}, {
+  "value" : "129264",
+  "name" : "uptime_seconds",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1.53 GB",
+  "name" : "memoryfree",
+  "certname" : "host.example.com"
+}, {
+  "value" : "{\"days\":1,\"hours\":35,\"seconds\":129264,\"uptime\":\"1 day\"}",
+  "name" : "system_uptime",
+  "certname" : "host.example.com"
+}, {
+  "value" : "1568.40",
+  "name" : "memoryfree_mb",
+  "certname" : "host.example.com"
+} ]
