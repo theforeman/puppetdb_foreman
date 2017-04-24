@@ -8,7 +8,7 @@ module PuppetdbForeman
         uri = URI.parse(Setting[:puppetdb_dashboard_address])
         puppetdb_url, layout = case params[:puppetdb]
                                when 'd3.v2', 'charts'                                                    then ["#{uri.path}#{request.original_fullpath}", false]
-                               when 'v3', 'metrics', 'pdb/meta/v1/version', 'pdb/meta/v1/version/latest' then [request.original_fullpath, false]
+                               when 'v3', 'metrics', 'pdb/meta/v1/version', 'pdb/meta/v1/version/latest','pdb/dashboard/data' then [request.original_fullpath, false]
                                else                                                                      ["#{uri.path}/index.html", true]
                                end
         result = Net::HTTP.get_response(uri.host, puppetdb_url, uri.port)
