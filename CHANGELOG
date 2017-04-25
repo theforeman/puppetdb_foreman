@@ -1,3 +1,22 @@
+2017-04-25	Timo Goebel <mail@timogoebel.name>
+	* add node compare feature to readme
+	* improve node view template
+	* add api actions
+	* use rest-client
+	* import hosts from puppetdb data
+
+2017-04-24	Timo Goebel <mail@timogoebel.name>
+	* rubocop: disable http positional arguments cop
+	* fix rubocop code style issues
+	* add puppetdb nodes controller
+	* puppetdb uses host queue
+
+2017-04-24	Patrick Reed <patrick.reed@rationalsystems.com>
+	* Add dashboard data url to the route to proxy to puppetdb
+
+2017-01-12	Daniel Lobato Garcia <me@daniellobato.me>
+	* Release 2.0
+
 2017-01-12	Daehyung Lee <netman2k@users.noreply.github.com>
 	* Modified codes to support PuppetDB 4
 
