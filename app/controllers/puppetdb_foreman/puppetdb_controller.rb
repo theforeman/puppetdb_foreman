@@ -2,6 +2,8 @@ module PuppetdbForeman
   class PuppetdbController < ApplicationController
     protect_from_forgery :except => :index
 
+    protect_from_forgery :except => :index
+
     def index
       uri = URI.parse(Setting[:puppetdb_dashboard_address])
       puppetdb_url, layout = case params[:puppetdb]
