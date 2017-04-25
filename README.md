@@ -11,6 +11,7 @@ It does the following:
 
   * Disables hosts on PuppetDB after they are deleted in Foreman.
   * Proxies the PuppetDB Performance Dashboard for access through Foreman.
+  * Compares nodes in PuppetDB to Hosts in Foreman.
 
 Feel free to raise issues, ask for features, anything, in the github repository or #theforeman IRC channel in Freenode.
 
