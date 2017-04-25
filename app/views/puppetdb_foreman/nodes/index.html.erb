@@ -31,30 +31,52 @@
       </div>
     </div>
     <div class="row">
-      <h2><%= _('Hosts unknown to Foreman') %></h2>
-    </div>
-    <div class="row">
-      <table class="<%= table_css_classes 'table-fixed' %>">
-        <thead>
-          <tr>
-            <th><%= _('Name') %></th>
-            <th class="col-md-1"><%= _('Actions') %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @unknown_hosts.each do |node| %>
-            <tr>
-              <td class="ellipsis"><%= node %></td>
-              <td>
-                <%= action_buttons(
-                  (display_link_if_authorized(_("Import"), hash_for_import_puppetdb_foreman_node_path(:id => node), :method => :put)),
-                  (display_delete_if_authorized(hash_for_puppetdb_foreman_node_path(:id => node), :class => 'delete', :text => _('Deactivate')))
-                ) %>
-            </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <div class="col-md-7">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= _('PuppetDB Nodes without Host in Foreman') %></h3>
+          </div>
+          <div class="panel-body">
+            <table class="<%= table_css_classes 'table-fixed' %>">
+              <% if @unknown_hosts.any? %>
+                <thead>
+                  <tr>
+                    <th class="col-md-5"><%= _('Name') %></th>
+                    <th class="col-md-2"><%= _('Actions') %></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @unknown_hosts.each do |node| %>
+                    <tr>
+                      <td class="ellipsis"><%= node %></td>
+                      <td>
+                        <%= action_buttons(
+                          (display_link_if_authorized(_("Import"), hash_for_import_puppetdb_foreman_node_path(:id => node), :method => :put)),
+                          (display_delete_if_authorized(hash_for_puppetdb_foreman_node_path(:id => node), :class => 'delete', :text => _('Deactivate')))
+                        ) %>
+                    </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              <% else %>
+                <tbody>
+                  <tr>
+                    <td class="blank-slate-pf" style="width: auto;">
+                      <div class="blank-slate-pf-icon">
+                        <%= icon_text("ok", "", :kind => "pficon") %>
+                      </div>
+                      <h1><%= _('PuppetDB in Sync') %></h1>
+                      <p>
+                        <%= _("For every node in PuppetDB a host in Foreman could be found. Both systems are in sync.") %>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
