@@ -1,4 +1,8 @@
+2017-04-26	Timo Goebel <mail@timogoebel.name>
+	* webmock is only a development dependency
+
 2017-04-25	Timo Goebel <mail@timogoebel.name>
+	* Release 3.0.0
 	* add node compare feature to readme
 	* improve node view template
 	* add api actions
