@@ -1,4 +1,8 @@
+2017-04-27	Timo Goebel <mail@timogoebel.name>
+	* drop action permission dsl
+
 2017-04-26	Timo Goebel <mail@timogoebel.name>
+	* Release 3.0.1
 	* webmock is only a development dependency
 
 2017-04-25	Timo Goebel <mail@timogoebel.name>
