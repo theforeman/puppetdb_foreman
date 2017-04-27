@@ -1,9 +1,6 @@
 module PuppetdbForeman
   class NodesController < ApplicationController
-    include ::Foreman::Controller::ActionPermissionDsl
-
     before_action :find_node, :only => [:destroy, :import]
-    define_action_permission ['import'], :import
 
     def controller_permission
       'puppetdb_nodes'
@@ -31,6 +28,15 @@ module PuppetdbForeman
     end
 
     private
+
+    def action_permission
+      case params[:action]
+      when 'import'
+        'import'
+      else
+        super
+      end
+    end
 
     def find_node
       @node = params[:id]
