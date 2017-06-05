@@ -31,7 +31,10 @@ Style/MethodName:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 38
+  Max: 50
+
+Metrics/ClassLength:
+  Max: 200
 
 Rails/Date:
   Exclude:
@@ -43,7 +46,7 @@ Metrics/BlockLength:
     - 'test/**/*'
 
 Metrics/MethodLength:
-  Max: 22
+  Max: 50
 
 Style/ClassAndModuleChildren:
   Exclude:

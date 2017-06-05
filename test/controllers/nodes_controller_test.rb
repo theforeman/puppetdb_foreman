@@ -12,7 +12,7 @@ class NodesControllerTest < ActionController::TestCase
   context '#index' do
     test 'lists puppetdb nodes unknown to foreman' do
       host = FactoryGirl.create(:host, :managed)
-      ::PuppetdbClient::V3.any_instance.stubs(:query_nodes).returns([host.name, 'two.example.com'])
+      ::PuppetdbClient::V4.any_instance.stubs(:query_nodes).returns([host.name, 'two.example.com'])
       get :index, {}, set_session_user
       assert_response :success
       refute response.body =~ /#{host.name}/m
@@ -23,7 +23,7 @@ class NodesControllerTest < ActionController::TestCase
   context '#destroy' do
     let(:node) { 'test.example.com' }
     test 'deactivating a node in puppetdb' do
-      ::PuppetdbClient::V3.any_instance.expects(:deactivate_node).with(node).returns(true)
+      ::PuppetdbClient::V4.any_instance.expects(:deactivate_node).with(node).returns(true)
       delete :destroy, { :id => node }, set_session_user
       assert_response :found
       assert_redirected_to puppetdb_foreman_nodes_path
@@ -38,7 +38,7 @@ class NodesControllerTest < ActionController::TestCase
     let(:host) { FactoryGirl.create(:host) }
 
     before do
-      ::PuppetdbClient::V3.any_instance.expects(:facts).with(node).returns({})
+      ::PuppetdbClient::V4.any_instance.expects(:facts).with(node).returns({})
       PuppetdbHost.any_instance.expects(:to_host).returns(host)
     end
 
