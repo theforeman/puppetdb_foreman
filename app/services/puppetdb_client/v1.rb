@@ -21,5 +21,9 @@ module PuppetdbClient
     def facts_url
       '/v3/facts'
     end
+
+    def query_nodes
+      super.map { |node| node['name'] }
+    end
   end
 end

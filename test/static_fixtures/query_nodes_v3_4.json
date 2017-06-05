@@ -1,0 +1,61 @@
+[ {
+  "certname" : "server1.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T15:07:27.114Z",
+  "facts_timestamp" : "2017-04-20T15:06:52.738Z",
+  "report_timestamp" : null
+}, {
+  "certname" : "server2.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T15:06:28.282Z",
+  "facts_timestamp" : "2017-04-20T15:06:12.253Z",
+  "report_timestamp" : null
+}, {
+  "certname" : "server3.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T15:12:56.090Z",
+  "facts_timestamp" : "2017-04-20T15:12:32.117Z",
+  "report_timestamp" : null
+}, {
+  "certname" : "server4.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T15:04:01.154Z",
+  "facts_timestamp" : "2017-04-20T15:03:38.150Z",
+  "report_timestamp" : null
+}, {
+  "certname" : "server5.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T15:20:06.853Z",
+  "facts_timestamp" : "2017-04-20T15:19:49.088Z",
+  "report_timestamp" : null
+}, {
+  "certname" : "server6.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T15:21:11.520Z",
+  "facts_timestamp" : "2017-04-20T15:20:57.685Z",
+  "report_timestamp" : null
+}, {
+  "certname" : "server7.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T15:15:37.033Z",
+  "facts_timestamp" : "2017-04-20T15:15:13.918Z",
+  "report_timestamp" : null
+}, {
+  "certname" : "server8.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T15:19:18.236Z",
+  "facts_timestamp" : "2017-04-20T15:19:02.659Z",
+  "report_timestamp" : null
+}, {
+  "certname" : "server9.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T14:39:35.070Z",
+  "facts_timestamp" : "2017-04-20T14:39:19.003Z",
+  "report_timestamp" : null
+}, {
+  "certname" : "server10.example.com",
+  "deactivated" : null,
+  "catalog_timestamp" : "2017-04-20T15:17:06.209Z",
+  "facts_timestamp" : "2017-04-20T15:16:50.007Z",
+  "report_timestamp" : null
+} ]

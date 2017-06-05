@@ -10,6 +10,12 @@ module PuppetdbForeman
                                                                                                    end
     end
 
+    initializer 'puppetdb_foreman.load_app_instance_data' do |app|
+      PuppetdbForeman::Engine.paths['db/migrate'].existent.each do |path|
+        app.config.paths['db/migrate'] << path
+      end
+    end
+
     initializer 'puppetdb_foreman.register_plugin', :before => :finisher_hook do |_app|
       Foreman::Plugin.register :puppetdb_foreman do
         requires_foreman '>= 1.11'

@@ -26,7 +26,7 @@ class PuppetdbHost
   end
 
   def parse_fact_value(value)
-    result = JSON.parse(value)
+    result = value.is_a?(String) ? JSON.parse(value) : value
     return result.to_s unless result.is_a?(Hash)
     deep_stringify_values(result)
   rescue JSON::ParserError
