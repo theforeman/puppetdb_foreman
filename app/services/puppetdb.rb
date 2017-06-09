@@ -1,4 +1,7 @@
 module Puppetdb
+
+  class UnsupportedVersion < StandardError; end
+
   def self.client
     options = {
       :uri => uri,
@@ -6,10 +9,18 @@ module Puppetdb
       :ssl_certificate_file => Setting[:puppetdb_ssl_certificate],
       :ssl_private_key_file => Setting[:puppetdb_ssl_private_key]
     }
-    if uri.path.start_with?('/pdb')
-      PuppetdbClient::V3.new(options)
-    else
+
+    api_version = Setting[:puppetdb_api_version].to_i
+
+    case api_version
+    when 1
       PuppetdbClient::V1.new(options)
+    when 3
+      PuppetdbClient::V3.new(options)
+    when 4
+      PuppetdbClient::V4.new(options)
+    else
+      raise ::Puppetdb::UnsupportedVersion
     end
   end
 
