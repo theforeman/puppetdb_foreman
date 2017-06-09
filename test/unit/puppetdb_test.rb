@@ -69,7 +69,7 @@ class PuppetdbTest < ActiveSupport::TestCase
     test 'query_nodes' do
       stub_request(:get, 'https://puppetdb:8081/pdb/query/v4/nodes')
         .with(:headers => { 'Accept' => 'application/json' })
-        .to_return(:status => 200, :body => fixture('query_nodes.json'), :headers => { 'Content-Type' => 'application/json; charset=utf-8' })
+        .to_return(:status => 200, :body => fixture('query_nodes_v3_4.json'), :headers => { 'Content-Type' => 'application/json; charset=utf-8' })
       expected = (1..10).map { |i| "server#{i}.example.com" }
       assert_equal expected, client.query_nodes
     end
@@ -110,7 +110,7 @@ class PuppetdbTest < ActiveSupport::TestCase
     test 'query_nodes' do
       stub_request(:get, 'https://puppetdb:8081/pdb/query/v4/nodes')
         .with(:headers => { 'Accept' => 'application/json' })
-        .to_return(:status => 200, :body => fixture('query_nodes.json'), :headers => { 'Content-Type' => 'application/json; charset=utf-8' })
+        .to_return(:status => 200, :body => fixture('query_nodes_v3_4.json'), :headers => { 'Content-Type' => 'application/json; charset=utf-8' })
       expected = (1..10).map { |i| "server#{i}.example.com" }
       assert_equal expected, client.query_nodes
     end
