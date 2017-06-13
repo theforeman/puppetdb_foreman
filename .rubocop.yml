@@ -60,3 +60,9 @@ Rails/HttpPositionalArguments:
 Rails/SkipsModelValidations:
   Exclude:
     - 'app/services/puppetdb_host.rb'
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
