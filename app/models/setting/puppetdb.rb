@@ -31,7 +31,7 @@ class Setting::Puppetdb < ::Setting
       set('puppetdb_ssl_ca_file', _('Foreman will send PuppetDB requests with this CA file'), default_ssl_ca_file),
       set('puppetdb_ssl_certificate', _('Foreman will send PuppetDB requests with this certificate file'), default_ssl_certificate),
       set('puppetdb_ssl_private_key', _('Foreman will send PuppetDB requests with this key file'), default_ssl_private_key),
-      set('puppetdb_api_version', _('Foreman will use this PuppetDB API version'), default_api_version)
+      set('puppetdb_api_version', _('Foreman will use this PuppetDB API version'), 'delete', N_('PuppetDB API Version'), nil, { collection: Proc.new { ::PuppetDB::API_VERSIONS }})
     ]
   end
 
