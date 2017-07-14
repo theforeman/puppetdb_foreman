@@ -1,6 +1,10 @@
 module Puppetdb
 
-  class UnsupportedVersion < StandardError; end
+  API_VERSIONS = {
+    '4' => 'v4: PuppetDB 2.3, 3.0, 3.1, 3.2, 4.0 (PE 3.8, 2015.2, 2015.3)',
+    '3' => 'v3: PuppetDB 1.5, 1.6 (PE 3.1, 3.2, 3.3)',
+    '2' => 'v2: PuppetDB 1.1, 1.2, 1.3, 1.4'
+  }.freeze
 
   def self.client
     options = {
@@ -10,8 +14,6 @@ module Puppetdb
       :ssl_private_key_file => Setting[:puppetdb_ssl_private_key]
     }
 
-    api_version = Setting[:puppetdb_api_version].to_i
-
     case api_version
     when 1
       PuppetdbClient::V1.new(options)
@@ -20,8 +22,12 @@ module Puppetdb
     when 4
       PuppetdbClient::V4.new(options)
     else
-      raise ::Puppetdb::UnsupportedVersion
+      raise Foreman::Exception.new(N_('Unsupported PuppetDB version.'))
     end
+  end
+
+  def self.api_version
+    Setting[:puppetdb_api_version].to_i
   end
 
   def self.uri
