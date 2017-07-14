@@ -9,7 +9,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
 
   context '#index' do
     test 'lists puppetdb nodes unknown to foreman' do
-      ::PuppetdbClient::V3.any_instance.stubs(:query_nodes).returns(['one.example.com', 'two.example.com'])
+      ::PuppetdbClient::V4.any_instance.stubs(:query_nodes).returns(['one.example.com', 'two.example.com'])
       get :index, {}, set_session_user
       assert_response :success
       response = ActiveSupport::JSON.decode(@response.body)
@@ -22,7 +22,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
   context '#unknown' do
     test 'lists puppetdb nodes unknown to foreman' do
       host = FactoryGirl.create(:host, :managed)
-      ::PuppetdbClient::V3.any_instance.stubs(:query_nodes).returns([host.name, 'two.example.com'])
+      ::PuppetdbClient::V4.any_instance.stubs(:query_nodes).returns([host.name, 'two.example.com'])
       get :unknown, {}, set_session_user
       assert_response :success
       response = ActiveSupport::JSON.decode(@response.body)
@@ -37,7 +37,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
     let(:uuid) { SecureRandom.uuid }
 
     before do
-      ::PuppetdbClient::V3.any_instance.expects(:deactivate_node).with(node).returns(uuid)
+      ::PuppetdbClient::V4.any_instance.expects(:deactivate_node).with(node).returns(uuid)
     end
 
     test 'imports a host by puppetdb facts' do
@@ -54,7 +54,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
     let(:host) { FactoryGirl.create(:host) }
 
     before do
-      ::PuppetdbClient::V3.any_instance.expects(:facts).with(node).returns({})
+      ::PuppetdbClient::V4.any_instance.expects(:facts).with(node).returns({})
       PuppetdbHost.any_instance.expects(:to_host).returns(host)
     end
 

@@ -26,6 +26,10 @@ module PuppetdbClient
       '/pdb/query/v4/facts'
     end
 
+    def query_nodes
+      super.map { |node| node['certname'] }
+    end
+
     private
 
     def post_options

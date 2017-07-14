@@ -58,6 +58,7 @@ for PuppetDB 4
   :puppetdb_ssl_ca_file: '/etc/puppetlabs/puppet/ssl/certs/ca.pem'
   :puppetdb_ssl_certificate: '/etc/puppetlabs/puppet/ssl/certs/FQDN.pem'
   :puppetdb_ssl_private_key: '/etc/puppetlabs/puppet/ssl/private_keys/FQDN.pem'
+  :puppetdb_api_version: 4
 ```
 
 You can find the dashboard under Monitor > PuppetDB dashboard. Only administrators and users with a role `view_puppetdb_dashboard` will be able to access it. Aside from convenience, the PuppetDB dashboard cannot be served over HTTPS, you can restrict your dashboard requests to only Foreman boxes and serve it securely to your users through HTTPS in Foreman.
