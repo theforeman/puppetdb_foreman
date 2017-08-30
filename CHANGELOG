@@ -1,4 +1,14 @@
+2017-08-22	Aggelos Avgerinos <avgerinos@skroutz.gr>
+	* add PuppetDB 4 support
+
+2017-08-08	Nathan Ward <nward@braintrust.co.nz>
+	* Fix the example for the settings.yaml file, for the SSL configuration - the settings should not be prefixed with 'puppetdb_'
+
+2017-06-13	Timo Goebel <mail@timogoebel.name>
+	* update rubocop to 0.49.1
+
 2017-04-27	Timo Goebel <mail@timogoebel.name>
+	* Release 3.0.2
 	* drop action permission dsl
 
 2017-04-26	Timo Goebel <mail@timogoebel.name>
