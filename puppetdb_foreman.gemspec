@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = 'Disable hosts on PuppetDB after they are deleted or built in Foreman, and proxy the PuppetDB dashboard to Foreman. Follow https://github.com/theforeman/puppetdb_foreman and raise an issue/submit a pull request if you need extra functionality. You can also find some help in #theforeman IRC channel on Freenode.'
   s.authors     = ['Daniel Lobato Garcia']
   s.email       = 'elobatocs@gmail.com'
-  s.files       = Dir['{app,config,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
+  s.files       = Dir['{app,db,config,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
   s.test_files  = Dir['test/**/*']
   s.homepage    = 'http://www.github.com/theforeman/puppetdb_foreman'
 
