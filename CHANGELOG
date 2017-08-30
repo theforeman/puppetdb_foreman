@@ -1,3 +1,7 @@
+2017-08-30	Timo Goebel <mail@timogoebel.name>
+	* gem: include migrations
+	* Release 3.1.0
+
 2017-08-22	Aggelos Avgerinos <avgerinos@skroutz.gr>
 	* add PuppetDB 4 support
 
