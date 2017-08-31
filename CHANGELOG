@@ -1,4 +1,8 @@
+2017-08-31	Timo Goebel <mail@timogoebel.name>
+	* fix puppetdb version setting
+
 2017-08-30	Timo Goebel <mail@timogoebel.name>
+	* Release 3.1.1
 	* gem: include migrations
 	* Release 3.1.0
 
