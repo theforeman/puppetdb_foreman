@@ -1,8 +1,8 @@
 module Puppetdb
   API_VERSIONS = {
-    '4' => 'v4: PuppetDB 2.3, 3.0, 3.1, 3.2, 4.0 (PE 3.8, 2015.2, 2015.3)',
-    '3' => 'v3: PuppetDB 1.5, 1.6 (PE 3.1, 3.2, 3.3)',
-    '2' => 'v2: PuppetDB 1.1, 1.2, 1.3, 1.4'
+    '4' => 'v4: PuppetDB 4.0, 4.1, 4.2, 4.3',
+    '3' => 'v3: PuppetDB 3.0, 3.1, 3.2',
+    '1' => 'v1: PuppetDB 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 2.0, 2.1, 2.2, 2.3'
   }.freeze
 
   def self.client
