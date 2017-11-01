@@ -1,5 +1,7 @@
 AllCops:
-  TargetRubyVersion: 2.0
+  TargetRubyVersion: 2.2
+  Exclude:
+    - 'Rakefile'
 
 Rails:
   Enabled: true
@@ -27,7 +29,7 @@ Style/HashSyntax:
 Style/FormatString:
   Enabled: false
 
-Style/MethodName:
+Naming/MethodName:
   Enabled: false
 
 Metrics/AbcSize:
@@ -68,4 +70,7 @@ Style/SymbolArray:
   Enabled: false
 
 Style/FormatStringToken:
+  Enabled: false
+
+Lint/BooleanSymbol:
   Enabled: false

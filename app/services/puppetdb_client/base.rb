@@ -22,7 +22,7 @@ module PuppetdbClient
     end
 
     def facts(nodename)
-      parse(get("#{facts_url}?#{URI.escape("query=[\"=\", \"certname\", \"#{nodename}\"]")}"))
+      parse(get("#{facts_url}?#{CGI.escape("query=[\"=\", \"certname\", \"#{nodename}\"]")}"))
     end
 
     private

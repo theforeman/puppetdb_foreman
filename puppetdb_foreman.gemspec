@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://www.github.com/theforeman/puppetdb_foreman'
 
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'rubocop', '0.49.1'
   s.add_development_dependency 'rdoc'
+  s.add_development_dependency 'rubocop', '0.51.0'
   s.add_development_dependency 'webmock'
 end
