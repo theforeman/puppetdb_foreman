@@ -19,7 +19,7 @@ namespace :puppetdb_foreman do
                          "#{PuppetdbForeman::Engine.root}/lib/**/*.rb",
                          "#{PuppetdbForeman::Engine.root}/test/**/*.rb"]
       end
-    rescue
+    rescue StandardError
       puts 'Rubocop not loaded.'
     end
 
