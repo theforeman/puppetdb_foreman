@@ -4,7 +4,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
   setup do
     setup_settings
     User.current = users(:admin)
-    @host = FactoryGirl.create(:host, :managed)
+    @host = FactoryBot.create(:host, :managed)
   end
 
   context '#index' do
@@ -21,7 +21,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
 
   context '#unknown' do
     test 'lists puppetdb nodes unknown to foreman' do
-      host = FactoryGirl.create(:host, :managed)
+      host = FactoryBot.create(:host, :managed)
       ::PuppetdbClient::V4.any_instance.stubs(:query_nodes).returns([host.name, 'two.example.com'])
       get :unknown, {}, set_session_user
       assert_response :success
@@ -51,7 +51,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
 
   context '#import' do
     let(:node) { 'test.example.com' }
-    let(:host) { FactoryGirl.create(:host) }
+    let(:host) { FactoryBot.create(:host) }
 
     before do
       ::PuppetdbClient::V4.any_instance.expects(:facts).with(node).returns({})

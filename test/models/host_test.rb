@@ -2,13 +2,13 @@ require 'test_plugin_helper'
 
 class HostTest < ActiveSupport::TestCase
   setup do
-    User.current = FactoryGirl.build(:user, :admin)
+    User.current = FactoryBot.build(:user, :admin)
     setup_settings
     disable_orchestration
   end
 
   context 'a host with puppetdb orchestration' do
-    let(:host) { FactoryGirl.build(:host, :managed) }
+    let(:host) { FactoryBot.build(:host, :managed) }
 
     context 'with puppetdb enabled' do
       before do

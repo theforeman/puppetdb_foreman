@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class PuppetdbHostTest < ActiveSupport::TestCase
   setup do
-    User.current = FactoryGirl.create(:user, :admin)
+    User.current = FactoryBot.create(:user, :admin)
     disable_orchestration
     setup_settings
   end
@@ -32,7 +32,7 @@ class PuppetdbHostTest < ActiveSupport::TestCase
 
   test 'updates an existing host by facts' do
     Setting[:update_subnets_from_facts] = true
-    FactoryGirl.create(:host, :managed, :hostname => 'host', :domain => FactoryGirl.create(:domain, :name => 'example.com'))
+    FactoryBot.create(:host, :managed, :hostname => 'host', :domain => FactoryBot.create(:domain, :name => 'example.com'))
     pdbhost.to_host
     host = Host.find_by(name: 'host.example.com')
     assert_equal 'host.example.com', host.name

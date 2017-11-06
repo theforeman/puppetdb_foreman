@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class PuppetdbTest < ActiveSupport::TestCase
   setup do
-    User.current = FactoryGirl.build(:user, :admin)
+    User.current = FactoryBot.build(:user, :admin)
     setup_settings
     disable_orchestration
   end
