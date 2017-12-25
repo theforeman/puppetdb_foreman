@@ -1,4 +1,4 @@
-class MigratePuppetdbApiVersionSetting < ActiveRecord::Migration
+class MigratePuppetdbApiVersionSetting < ActiveRecord::Migration[4.2]
   def up
     puppetdb_address = Setting.where(:category => 'Setting::Puppetdb', :name => 'puppetdb_address').first.try(:value)
     return unless puppetdb_address
