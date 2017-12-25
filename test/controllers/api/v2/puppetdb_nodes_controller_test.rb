@@ -10,7 +10,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
   context '#index' do
     test 'lists puppetdb nodes unknown to foreman' do
       ::PuppetdbClient::V4.any_instance.stubs(:query_nodes).returns(['one.example.com', 'two.example.com'])
-      get :index, {}, set_session_user
+      get :index, session: set_session_user
       assert_response :success
       response = ActiveSupport::JSON.decode(@response.body)
       hosts = response['results']
@@ -23,7 +23,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
     test 'lists puppetdb nodes unknown to foreman' do
       host = FactoryBot.create(:host, :managed)
       ::PuppetdbClient::V4.any_instance.stubs(:query_nodes).returns([host.name, 'two.example.com'])
-      get :unknown, {}, set_session_user
+      get :unknown, session: set_session_user
       assert_response :success
       response = ActiveSupport::JSON.decode(@response.body)
       hosts = response['results']
@@ -41,7 +41,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
     end
 
     test 'imports a host by puppetdb facts' do
-      delete :destroy, { :id => node }, set_session_user
+      delete :destroy, params: { :id => node }, session: set_session_user
       assert_response :success
       response = ActiveSupport::JSON.decode(@response.body)
       expected = { 'job' => { 'uuid' => uuid } }
@@ -59,7 +59,7 @@ class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
     end
 
     test 'imports a host by puppetdb facts' do
-      put :import, { :id => node }, set_session_user
+      put :import, params: { :id => node }, session: set_session_user
       assert_response :success
       response = ActiveSupport::JSON.decode(@response.body)
       assert_equal host.id, response['id']
