@@ -1,6 +1,9 @@
 require 'test_plugin_helper'
 
 class PuppetdbHostTest < ActiveSupport::TestCase
+  include FactImporterIsolation
+  allow_transactions_for_any_importer
+
   setup do
     User.current = FactoryBot.create(:user, :admin)
     disable_orchestration
