@@ -1,5 +1,6 @@
 AllCops:
   TargetRubyVersion: 2.2
+  TargetRailsVersion: 5.1
   Exclude:
     - 'Rakefile'
 
@@ -73,4 +74,7 @@ Style/FormatStringToken:
   Enabled: false
 
 Lint/BooleanSymbol:
+  Enabled: false
+
+Style/IfUnlessModifier:
   Enabled: false
