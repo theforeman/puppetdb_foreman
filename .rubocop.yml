@@ -60,9 +60,6 @@ Style/RegexpLiteral:
   Exclude:
     - 'config/routes.rb'
 
-Rails/HttpPositionalArguments:
-  Enabled: false
-
 Rails/SkipsModelValidations:
   Exclude:
     - 'app/services/puppetdb_host.rb'
