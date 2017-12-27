@@ -22,7 +22,7 @@ module PuppetdbClient
     end
 
     def facts(nodename)
-      parse(get("#{facts_url}?#{CGI.escape("query=[\"=\", \"certname\", \"#{nodename}\"]")}"))
+      parse(get(facts_url, query: "[\"=\", \"certname\", \"#{nodename}\"]"))
     end
 
     private
@@ -42,9 +42,9 @@ module PuppetdbClient
       "#{uri.scheme}://#{uri.host}:#{uri.port}"
     end
 
-    def get(endpoint)
-      logger.debug "PuppetdbClient: GET request to #{endpoint}"
-      connection(endpoint).get.body
+    def get(endpoint, params = {})
+      logger.debug "PuppetdbClient: GET request to #{endpoint} with params: #{params}"
+      connection(endpoint).get(params: params).body
     end
 
     def post(endpoint, payload)
