@@ -16,6 +16,12 @@ It does the following:
 
 Feel free to raise issues, ask for features, anything, in the github repository or #theforeman IRC channel in Freenode.
 
+## Compatibility
+
+| Foreman Version | Plugin Version |
+| --------------- | -------------- |
+| >= 1.17         | ~> 4.0.0       |
+
 # Installation:
 
 **From packages**

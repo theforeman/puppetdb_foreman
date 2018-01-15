@@ -1,4 +1,25 @@
+2018-01-15	Timo Goebel <mail@timogoebel.name>
+	* Release 4.0.0
+	* fix wording in failure message
+
+2017-12-27	Timo Goebel <mail@timogoebel.name>
+	* rest-client handles get params
+	* require Foreman 1.17
+
+2017-12-27	Michael Moll <kvedulv@kvedulv.de>
+	* set DB migration compatibility to 4.2
+	* stop using HttpPositionalArguments
+	* update rubocop to 0.52.0
+	* update fact importing tests
+
+2017-11-07	Timo Goebel <mail@timogoebel.name>
+	* replace FactoryGirl with FactoryBot
+
+2017-11-06	Timo Goebel <mail@timogoebel.name>
+	* update rubocop to 0.51.0
+
 2017-08-31	Timo Goebel <mail@timogoebel.name>
+	* Release 3.1.2
 	* fix puppetdb version setting
 
 2017-08-30	Timo Goebel <mail@timogoebel.name>
