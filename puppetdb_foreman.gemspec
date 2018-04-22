@@ -1,4 +1,4 @@
-require File.expand_path('../lib/puppetdb_foreman/version', __FILE__)
+require File.expand_path('lib/puppetdb_foreman/version', __dir__)
 require 'date'
 
 Gem::Specification.new do |s|
@@ -16,6 +16,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rdoc'
-  s.add_development_dependency 'rubocop', '0.52.0'
+  s.add_development_dependency 'rubocop', '0.54.0'
   s.add_development_dependency 'webmock'
 end
