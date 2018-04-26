@@ -28,8 +28,8 @@ class NodesControllerTest < ActionController::TestCase
       assert_response :found
       assert_redirected_to puppetdb_foreman_nodes_path
       assert_nil flash[:error]
-      assert_not_nil flash[:notice]
-      assert_equal "Deactivated node #{node} in PuppetDB", flash[:notice]
+      assert_not_nil flash[:notice] || flash[:success]
+      assert_equal "Deactivated node #{node} in PuppetDB", flash[:notice] || flash[:success]
     end
   end
 
@@ -47,8 +47,8 @@ class NodesControllerTest < ActionController::TestCase
       assert_response :found
       assert_redirected_to host_path(:id => host)
       assert_nil flash[:error]
-      assert_not_nil flash[:notice]
-      assert_equal "Imported host #{node} from PuppetDB", flash[:notice]
+      assert_not_nil flash[:notice] || flash[:success]
+      assert_equal "Imported host #{node} from PuppetDB", flash[:notice] || flash[:success]
     end
   end
 end
