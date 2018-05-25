@@ -24,10 +24,13 @@ module PuppetdbForeman
 
         security_block :puppetdb_foreman do
           permission :view_puppetdb_dashboard, :'puppetdb_foreman/puppetdb' => [:index]
-          permission :view_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:index],
+
+          permission :view_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:index, :show],
                                            :'api/v2/puppetdb_nodes' => [:index, :unknown]
+
           permission :destroy_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:destroy],
                                               :'api/v2/puppetdb_nodes' => [:destroy]
+
           permission :import_puppetdb_nodes, :'puppetdb_foreman/nodes' => [:import],
                                              :'api/v2/puppetdb_nodes' => [:import]
         end
@@ -50,6 +53,7 @@ module PuppetdbForeman
     config.to_prepare do
       begin
         Host::Managed.send :include, PuppetdbForeman::HostExtensions
+        HostsHelper.send(:include, PuppetdbForeman::HostsHelperExtensions)
       rescue StandardError => e
         Rails.logger.warn "PuppetdbForeman: skipping engine hook (#{e})"
       end

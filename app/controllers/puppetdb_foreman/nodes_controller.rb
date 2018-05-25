@@ -1,6 +1,6 @@
 module PuppetdbForeman
   class NodesController < ApplicationController
-    before_action :find_node, :only => [:destroy, :import]
+    before_action :find_node, :only => [:show, :destroy, :import]
 
     def controller_permission
       'puppetdb_nodes'
@@ -10,6 +10,17 @@ module PuppetdbForeman
       @foreman_hosts = Host.unscoped.pluck(:name)
       @puppetdb_hosts = Puppetdb.client.query_nodes
       @unknown_hosts = @puppetdb_hosts - @foreman_hosts
+    end
+
+    def show
+      response = Puppetdb.client.resources(@node)
+
+      class_names = response.map { |v| v['title'] if v['type'] == 'Class' }.compact
+
+      @classes_count = class_names.count
+      @classes = class_names.paginate(page: params[:page], per_page: params[:per_page])
+
+      @type_names = response.map { |v| v['type'] }.uniq
     end
 
     def destroy
