@@ -1,0 +1,69 @@
+<% title @node %>
+
+<% if respond_to?(:breadcrumbs) %>
+  <% breadcrumbs(
+       items: [
+       {
+         caption: _('Nodes'),
+         url: (url_for(puppetdb_foreman_nodes_path) if authorized_for(hash_for_puppetdb_foreman_nodes_path))
+       },
+       {
+         caption: @node
+       }],
+       switchable: false)
+  %>
+<% end %>
+
+<div class="col-md-12">
+  <div class="row">
+    <div class="container-fluid container-cards-pf">
+      <div class="row row-cards-pf">
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="card-pf card-pf-accented card-pf-aggregate-status">
+            <h2 class="card-pf-title">
+              <span class="pficon pficon-infrastructure"></span><span class="card-pf-aggregate-status-count"><%= @classes_count %></span> <%= _('Classes') %>
+            </h2>
+            <div class="card-pf-body"></div>
+          </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="card-pf card-pf-accented card-pf-aggregate-status">
+            <h2 class="card-pf-title">
+              <span class="fa fa-wrench"></span><span class="card-pf-aggregate-status-count"><%= @type_names.count %></span> <%= _('Types') %>
+            </h2>
+            <div class="card-pf-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= _('Puppet classes') %></h3>
+        </div>
+
+        <div class="panel-body">
+          <% if @classes.any? %>
+            <table class="<%= table_css_classes 'table-fixed' %>">
+              <thead>
+                <tr>
+                  <th class="col-md-5"><%= _('Name') %></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @classes.each do |class_name| %>
+                  <tr><td><%= class_name %></td></tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+
+          <%= will_paginate_with_info @classes %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

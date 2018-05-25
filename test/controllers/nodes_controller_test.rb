@@ -20,6 +20,30 @@ class NodesControllerTest < ActionController::TestCase
     end
   end
 
+  context '#show' do
+    let(:host) { FactoryBot.create(:host, :managed) }
+
+    before do
+      resources_resp = [
+        { 'type' => 'Class', 'title' => 'main' },
+        { 'type' => 'Class', 'title' => 'Settings' },
+        { 'type' => 'Stage', 'title' => 'main' }
+      ]
+
+      ::PuppetdbClient::V4.any_instance.stubs(:resources).returns(resources_resp)
+    end
+
+    test 'displays puppet classes information about a given node' do
+      get :show, params: { id: host.name }, session: set_session_user
+
+      assert_response :success
+      assert_includes response.body, '<tr><td>main</td></tr>'
+      assert_includes response.body, '<tr><td>Settings</td></tr>'
+      assert_includes response.body, '2</span> Classes'
+      assert_includes response.body, '2</span> Types'
+    end
+  end
+
   context '#destroy' do
     let(:node) { 'test.example.com' }
     test 'deactivating a node in puppetdb' do

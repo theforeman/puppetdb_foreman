@@ -26,6 +26,10 @@ module PuppetdbClient
       '/pdb/query/v4/facts'
     end
 
+    def resources_url
+      '/pdb/query/v4/resources'
+    end
+
     def query_nodes
       super.map { |node| node['certname'] }
     end

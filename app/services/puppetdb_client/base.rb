@@ -25,6 +25,10 @@ module PuppetdbClient
       parse(get(facts_url, query: "[\"=\", \"certname\", \"#{nodename}\"]"))
     end
 
+    def resources(nodename)
+      parse(get(resources_url, query: "[\"=\", \"certname\", \"#{nodename}\"]"))
+    end
+
     private
 
     def connection(url)

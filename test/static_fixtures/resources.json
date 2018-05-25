@@ -1,0 +1,41 @@
+[{
+  "tags": ["params", "class"],
+  "file": null,
+  "type": "Class",
+  "title": "Cron",
+  "line": null,
+  "resource": "f13ec266-2914-420c-8d71-13e3466c5856",
+  "certname": "host.example.com",
+  "parameters": {},
+  "exported": false
+}, {
+  "tags": ["class"],
+  "file": null,
+  "type": "Anchor",
+  "title": "postgresql",
+  "line": null,
+  "resource": "9b007f50-87f3-48a1-a4c5-584f2f9d1740",
+  "certname": "host.example.com",
+  "parameters": {},
+  "exported": false
+}, {
+  "tags": ["class"],
+  "file": null,
+  "type": "Class",
+  "title": "SomeClass",
+  "line": 21,
+  "resource": "4b68c39a-b1cc-45ab-96c2-690dbc045f76",
+  "certname": "host.example.com",
+  "parameters": {},
+  "exported": false
+}, {
+  "tags": ["class", "params"],
+  "file": null,
+  "type": "Class",
+  "title": "AnotherClass::Params",
+  "line": null,
+  "resource": "69293889-3e16-48e1-943f-5602096f6c47",
+  "certname": "host.example.com",
+  "parameters": {},
+  "exported": false
+}]
