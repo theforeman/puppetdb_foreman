@@ -18,7 +18,7 @@ module PuppetdbForeman
 
     initializer 'puppetdb_foreman.register_plugin', :before => :finisher_hook do |_app|
       Foreman::Plugin.register :puppetdb_foreman do
-        requires_foreman '>= 1.17'
+        requires_foreman '>= 1.20'
 
         apipie_documented_controllers ["#{PuppetdbForeman::Engine.root}/app/controllers/api/v2/*.rb"]
 
