@@ -10,7 +10,6 @@ This is a [Foreman](http://theforeman.org) plugin to interact with [PuppetDB](ht
 It does the following:
 
   * Disables hosts on PuppetDB after they are deleted in Foreman.
-  * Proxies the PuppetDB Performance Dashboard for access through Foreman.
   * Compares nodes in PuppetDB to Hosts in Foreman.
   * Creates Hosts in Foreman from PuppetDB facts.
 
@@ -51,7 +50,7 @@ puppetdb_foreman uses [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.
 
 # Usage:
 
-Go to Administer > Settings > PuppetDB and set `puppetdb_address` with your PuppetDB address, `puppetdb_dashboard_address` (optional) to proxy the dashboard, `puppetdb_enabled` to either true or false if you want to enable or disable PuppetDB integration. Obviously you will need a PuppetDB instance at the address you provide.
+Go to Administer > Settings > PuppetDB and set `puppetdb_address` with your PuppetDB address, `puppetdb_enabled` to either true or false if you want to enable or disable PuppetDB integration. Obviously you will need a PuppetDB instance at the address you provide.
 
 Alternatively you can put your settings in `config/settings.yaml`. Please keep in mind these will be overwritten if changed in the application, and if the application is rebooted, YAML rules will overwrite again your manually changed settings. Hence passing your settings in this format is discouraged, but allowed.
 
@@ -60,17 +59,11 @@ for PuppetDB 4
 :puppetdb:
   :enabled: true
   :address: 'https://puppetdb:8081/pdb/cmd/v1'
-  :dashboard_address: 'http://puppetdb:8080/pdb/dashboard'
   :ssl_ca_file: '/etc/puppetlabs/puppet/ssl/certs/ca.pem'
   :ssl_certificate: '/etc/puppetlabs/puppet/ssl/certs/FQDN.pem'
   :ssl_private_key: '/etc/puppetlabs/puppet/ssl/private_keys/FQDN.pem'
   :api_version: 4
 ```
-
-You can find the dashboard under Monitor > PuppetDB dashboard. Only administrators and users with a role `view_puppetdb_dashboard` will be able to access it. Aside from convenience, the PuppetDB dashboard cannot be served over HTTPS, you can restrict your dashboard requests to only Foreman boxes and serve it securely to your users through HTTPS in Foreman.
-
-![Screenshot](http://i.imgur.com/5d80CtZ.png)
-
 
 # Copyright:
 Copyright 2013 CERN, Switzerland and various authors
