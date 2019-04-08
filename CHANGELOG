@@ -1,3 +1,18 @@
+2018-11-19	Kamil Szubrycht <kamil.szubrycht@ironin.pl>
+	* Remove PuppetDB dashboard
+
+2018-10-01	Kamil Szubrycht <kamil.szubrycht@ironin.pl>
+	* fix tests for Foreman 1.20 support
+
+2018-06-05	Peter Lehwess <peter.lehwess@dm.de>
+	* Add ability to view puppet classes and types for individual hosts/nodes
+
+2018-04-26	Timo Goebel <mail@timogoebel.name>
+	* fix flashes for 1.18 compatibility
+
+2018-04-22	Timo Goebel <mail@timogoebel.name>
+	* update robocop to 0.54.0
+
 2018-01-15	Timo Goebel <mail@timogoebel.name>
 	* Release 4.0.0
 	* fix wording in failure message

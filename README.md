@@ -2,8 +2,6 @@
 
 [![Code Climate](https://codeclimate.com/github/theforeman/puppetdb_foreman/badges/gpa.svg)](https://codeclimate.com/github/theforeman/puppetdb_foreman)
 [![Gem Version](https://badge.fury.io/rb/puppetdb_foreman.svg)](http://badge.fury.io/rb/puppetdb_foreman)
-[![Dependency Status](https://gemnasium.com/theforeman/puppetdb_foreman.svg)](https://gemnasium.com/theforeman/puppetdb_foreman)
-[![Issue stats](http://issuestats.com/github/theforeman/puppetdb_foreman/badge/pr?style=flat)](http://issuestats.com/github/theforeman/puppetdb_foreman)
 
 This is a [Foreman](http://theforeman.org) plugin to interact with [PuppetDB](https://docs.puppetlabs.com/puppetdb/index.html).
 
@@ -20,6 +18,7 @@ Feel free to raise issues, ask for features, anything, in the github repository 
 | Foreman Version | Plugin Version |
 | --------------- | -------------- |
 | >= 1.17         | ~> 4.0.0       |
+| >= 1.20         | ~> 5.0.0       |
 
 # Installation:
 
