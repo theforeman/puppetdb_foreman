@@ -20,11 +20,12 @@ module Orchestration
     end
 
     def del_puppetdb
-      Rails.logger.info "Deactivating node in PuppetDB: #{name}"
-      ::Puppetdb.client.deactivate_node(name)
+      Rails.logger.info "Deactivating node in PuppetDB: #{certname} (#{name})"
+      ::Puppetdb.client.deactivate_node(certname)
     rescue StandardError => e
       failure format(
-        _("Failed to deactivate node %<name>s in PuppetDB: %<message>s\n "), name: name, message: e.message
+        _("Failed to deactivate node %<certname> (%<name>) in PuppetDB: %<message>\n "),
+        name: name, message: e.message, certname: certname
       ), e
     end
 
