@@ -1,77 +1,82 @@
 AllCops:
-  TargetRubyVersion: 2.2
-  TargetRailsVersion: 5.1
+  TargetRubyVersion: 2.3
+  TargetRailsVersion: 5.2
   Exclude:
     - 'Rakefile'
 
 Rails:
   Enabled: true
 
+Rails/Date:
+  Enabled: false
+
 # Don't enforce documentation
 Style/Documentation:
   Enabled: false
 
-Metrics/MethodLength:
-  Max: 20
-
-Metrics/LineLength:
-  Max: 221
-  Exclude:
-    - 'puppetdb_foreman.gemspec'
-
-Style/Next:
-  Enabled: false
-
-# Support both ruby19 and hash_rockets
-Style/HashSyntax:
-  Enabled: false
-
-# SupportedStyles: format, sprintf, percent
-Style/FormatString:
-  Enabled: false
-
-Naming/MethodName:
-  Enabled: false
-
-Metrics/AbcSize:
-  Max: 50
-
-Metrics/ClassLength:
-  Max: 200
-
-Rails/Date:
-  Exclude:
-    - 'puppetdb_foreman.gemspec'
-
 Metrics/BlockLength:
   Exclude:
-    - 'config/routes.rb'
+    - 'test/**/*'
+
+Metrics/LineLength:
+  Max: 140
+  Exclude:
     - 'test/**/*'
 
 Metrics/MethodLength:
-  Max: 50
+  Max: 40
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 500
+
+Naming/FileName:
+  Exclude:
+      - 'db/seeds.d/*'
+
+Style/WordArray:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
 
 Style/ClassAndModuleChildren:
-  Exclude:
-    - 'app/models/setting/*'
-    - 'test/controllers/api/v2/*'
+  Enabled: false
 
-Style/RegexpLiteral:
-  Exclude:
-    - 'config/routes.rb'
+Style/EachWithObject:
+  Enabled: false
 
-Rails/SkipsModelValidations:
-  Exclude:
-    - 'app/services/puppetdb_host.rb'
+Metrics/ParameterLists:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
 
 Style/SymbolArray:
+  Enabled: false
+
+Style/FormatString:
   Enabled: false
 
 Style/FormatStringToken:
   Enabled: false
 
-Lint/BooleanSymbol:
+Style/HashSyntax:
   Enabled: false
 
-Style/IfUnlessModifier:
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Style/CommentedKeyword:
+  Enabled: false
+
+Rails/LexicallyScopedActionFilter:
   Enabled: false

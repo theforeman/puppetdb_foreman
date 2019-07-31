@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PuppetdbClient
   class V3 < Base
     # The payload is formatted as a JSON map.

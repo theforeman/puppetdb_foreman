@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Puppetdb
   API_VERSIONS = {
     '4' => 'v4: PuppetDB 4.0, 4.1, 4.2, 4.3',

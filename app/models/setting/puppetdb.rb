@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Setting::Puppetdb < ::Setting
   BLANK_ATTRS << 'puppetdb_address'
   BLANK_ATTRS << 'puppetdb_ssl_ca_file'

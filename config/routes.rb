@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   namespace :puppetdb_foreman do
     constraints(:id => %r{[^\/]+}) do
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
                      :defaults => { :apiv => 'v2' },
                      :apiv => /v1|v2/,
                      :constraints => ApiConstraints.new(:version => 2) do
-      constraints(:id => /[^\/]+/) do
+      constraints(:id => %r{[^/]+}) do
         resources :puppetdb_nodes, :only => [:index, :destroy] do
           collection do
             get 'unknown'

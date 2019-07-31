@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PuppetdbHost
   attr_accessor :certname, :environment, :facts
 

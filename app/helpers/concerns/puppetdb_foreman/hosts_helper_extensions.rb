@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PuppetdbForeman
   module HostsHelperExtensions
     extend ActiveSupport::Concern

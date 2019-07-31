@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path('lib/puppetdb_foreman/version', __dir__)
 require 'date'
 

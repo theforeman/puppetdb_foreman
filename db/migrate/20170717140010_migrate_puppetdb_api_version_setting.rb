@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigratePuppetdbApiVersionSetting < ActiveRecord::Migration[4.2]
   def up
     puppetdb_address = Setting.where(:category => 'Setting::Puppetdb', :name => 'puppetdb_address').first.try(:value)
