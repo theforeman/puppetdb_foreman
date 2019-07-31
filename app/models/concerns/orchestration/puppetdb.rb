@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Orchestration
   module Puppetdb
     extend ActiveSupport::Concern

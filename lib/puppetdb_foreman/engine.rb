@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PuppetdbForeman
   class Engine < ::Rails::Engine
     engine_name 'puppetdb_foreman'

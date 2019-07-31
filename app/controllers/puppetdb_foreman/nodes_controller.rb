@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PuppetdbForeman
   class NodesController < ApplicationController
     before_action :find_node, :only => [:show, :destroy, :import]

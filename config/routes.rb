@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   namespace :puppetdb_foreman do
     constraints(:id => %r{[^\/]+}) do
