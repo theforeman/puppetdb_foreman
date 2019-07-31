@@ -13,10 +13,10 @@ module Orchestration
     def queue_puppetdb_destroy
       return unless ::Puppetdb.ready? && errors.empty?
       queue.create(:name   => _('Deactivating node %s in PuppetDB') % self, :priority => 60,
-                   :action => [self, :delPuppetdb])
+                   :action => [self, :del_puppetdb])
     end
 
-    def delPuppetdb
+    def del_puppetdb
       Rails.logger.info "Deactivating node in PuppetDB: #{name}"
       ::Puppetdb.client.deactivate_node(name)
     rescue StandardError => e
@@ -24,6 +24,6 @@ module Orchestration
               { :name => name, :message => e.message }, e
     end
 
-    def setPuppetdb; end
+    def set_puppetdb; end
   end
 end
