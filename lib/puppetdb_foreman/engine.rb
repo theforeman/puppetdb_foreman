@@ -35,7 +35,7 @@ module PuppetdbForeman
 
         role 'PuppetDB Node Viewer', [:view_puppetdb_nodes], 'Role granting permissions to view nodes from PuppetDB.'
         role 'PuppetDB Node Manager', [:view_puppetdb_nodes, :destroy_puppetdb_nodes, :import_puppetdb_nodes], 
-             'Role granting permissions to manage Puppet nodes.'
+             'Role granting permissions to manage nodes from PuppetDB.'
 
         menu :top_menu, :nodes, :caption => N_('PuppetDB Nodes'),
                                 :url_hash => { :controller => 'puppetdb_foreman/nodes', :action => 'index' },
