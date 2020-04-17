@@ -24,9 +24,9 @@ class HostTest < ActiveSupport::TestCase
         assert_equal 1, tasks.size
       end
 
-      test '#delPuppetdb' do
+      test '#del_puppetdb' do
         ::PuppetdbClient::V4.any_instance.expects(:deactivate_node).with(host.name).returns(true)
-        host.send(:delPuppetdb)
+        host.send(:del_puppetdb)
       end
     end
 

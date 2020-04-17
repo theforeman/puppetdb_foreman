@@ -5,8 +5,8 @@ module PuppetdbForeman
     initializer 'puppetdb_foreman.load_default_settings', :before => :load_config_initializers do |_app|
       require_dependency File.expand_path('../../app/models/setting/puppetdb.rb', __dir__) if begin
                                                                                                      Setting.table_exists?
-                                                                                                   rescue StandardError
-                                                                                                     (false)
+                                                                                              rescue StandardError
+                                                                                                (false)
                                                                                                    end
     end
 
@@ -45,8 +45,8 @@ module PuppetdbForeman
 
     config.to_prepare do
       begin
-        Host::Managed.send :include, PuppetdbForeman::HostExtensions
-        HostsHelper.send(:include, PuppetdbForeman::HostsHelperExtensions)
+        Host::Managed.include PuppetdbForeman::HostExtensions
+        HostsHelper.include PuppetdbForeman::HostsHelperExtensions
       rescue StandardError => e
         Rails.logger.warn "PuppetdbForeman: skipping engine hook (#{e})"
       end

@@ -20,7 +20,7 @@ module PuppetdbForeman
         Puppetdb.client.deactivate_node(name)
       rescue StandardError => e
         errors.add(:base, _("Could not deactivate host on PuppetDB: #{e}"))
-        return false
+        false
       end
     end
   end
