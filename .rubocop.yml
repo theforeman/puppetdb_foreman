@@ -1,77 +1,88 @@
 AllCops:
-  TargetRubyVersion: 2.2
-  TargetRailsVersion: 5.1
+  TargetRubyVersion: 2.3
+  TargetRailsVersion: 5.2
   Exclude:
     - 'Rakefile'
 
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Metrics:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - 'db/seeds.d/*'
+
 Rails:
   Enabled: true
+
+Rails/Date:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
+Rails/RefuteMethods:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/CommentedKeyword:
+  Enabled: false
 
 # Don't enforce documentation
 Style/Documentation:
   Enabled: false
 
-Metrics/MethodLength:
-  Max: 20
-
-Metrics/LineLength:
-  Max: 221
-  Exclude:
-    - 'puppetdb_foreman.gemspec'
-
-Style/Next:
+Style/EachWithObject:
   Enabled: false
 
-# Support both ruby19 and hash_rockets
-Style/HashSyntax:
-  Enabled: false
-
-# SupportedStyles: format, sprintf, percent
 Style/FormatString:
-  Enabled: false
-
-Naming/MethodName:
-  Enabled: false
-
-Metrics/AbcSize:
-  Max: 50
-
-Metrics/ClassLength:
-  Max: 200
-
-Rails/Date:
-  Exclude:
-    - 'puppetdb_foreman.gemspec'
-
-Metrics/BlockLength:
-  Exclude:
-    - 'config/routes.rb'
-    - 'test/**/*'
-
-Metrics/MethodLength:
-  Max: 50
-
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'app/models/setting/*'
-    - 'test/controllers/api/v2/*'
-
-Style/RegexpLiteral:
-  Exclude:
-    - 'config/routes.rb'
-
-Rails/SkipsModelValidations:
-  Exclude:
-    - 'app/services/puppetdb_host.rb'
-
-Style/SymbolArray:
   Enabled: false
 
 Style/FormatStringToken:
   Enabled: false
 
-Lint/BooleanSymbol:
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
   Enabled: false
 
 Style/IfUnlessModifier:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/WordArray:
   Enabled: false
