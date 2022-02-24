@@ -8,7 +8,7 @@ class PuppetdbHost
 
   def to_host
     host = Host::Managed.import_host(facts[:fqdn], certname)
-    host.import_facts(facts)
+    HostFactImporter.new(host).import_facts(facts)
     host.update_attribute(:environment => environment) if environment
     host
   end
