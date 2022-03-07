@@ -4,7 +4,6 @@ class NodesControllerTest < ActionController::TestCase
   tests ::PuppetdbForeman::NodesController
 
   setup do
-    setup_settings
     User.current = users(:admin)
     @host = FactoryBot.create(:host, :managed)
   end

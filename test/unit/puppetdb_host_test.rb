@@ -7,7 +7,6 @@ class PuppetdbHostTest < ActiveSupport::TestCase
   setup do
     User.current = FactoryBot.create(:user, :admin)
     disable_orchestration
-    setup_settings
   end
 
   let(:sample_facts) do

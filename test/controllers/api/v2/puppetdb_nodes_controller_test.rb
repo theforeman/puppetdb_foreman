@@ -2,7 +2,6 @@ require 'test_plugin_helper'
 
 class Api::V2::PuppetdbNodesControllerTest < ActionController::TestCase
   setup do
-    setup_settings
     User.current = users(:admin)
     @host = FactoryBot.create(:host, :managed)
   end

@@ -19,6 +19,7 @@ Feel free to raise issues, ask for features, anything, in the github repository 
 | --------------- | -------------- |
 | >= 1.17         | ~> 4.0.0       |
 | >= 1.20         | ~> 5.0.0       |
+| >= 3.1          | ~> 6.0.0       |
 
 # Installation:
 
@@ -50,19 +51,6 @@ puppetdb_foreman uses [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.
 # Usage:
 
 Go to Administer > Settings > PuppetDB and set `puppetdb_address` with your PuppetDB address, `puppetdb_enabled` to either true or false if you want to enable or disable PuppetDB integration. Obviously you will need a PuppetDB instance at the address you provide.
-
-Alternatively you can put your settings in `config/settings.yaml`. Please keep in mind these will be overwritten if changed in the application, and if the application is rebooted, YAML rules will overwrite again your manually changed settings. Hence passing your settings in this format is discouraged, but allowed.
-
-for PuppetDB 4
-```yaml
-:puppetdb:
-  :enabled: true
-  :address: 'https://puppetdb:8081/pdb/cmd/v1'
-  :ssl_ca_file: '/etc/puppetlabs/puppet/ssl/certs/ca.pem'
-  :ssl_certificate: '/etc/puppetlabs/puppet/ssl/certs/FQDN.pem'
-  :ssl_private_key: '/etc/puppetlabs/puppet/ssl/private_keys/FQDN.pem'
-  :api_version: 4
-```
 
 # Copyright:
 Copyright 2013 CERN, Switzerland and various authors
