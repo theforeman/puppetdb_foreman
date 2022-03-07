@@ -6,10 +6,6 @@ require 'webmock/minitest'
 # Foreman's setup doesn't handle cleaning up for Minitest::Spec
 DatabaseCleaner.strategy = :transaction
 
-def setup_settings
-  Setting::Puppetdb.load_defaults
-end
-
 def fixture(name)
   File.read(File.expand_path("../static_fixtures/#{name}", __FILE__))
 end
