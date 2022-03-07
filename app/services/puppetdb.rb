@@ -1,8 +1,6 @@
 module Puppetdb
   API_VERSIONS = {
-    '4' => 'v4: PuppetDB 4.0, 4.1, 4.2, 4.3',
-    '3' => 'v3: PuppetDB 3.0, 3.1, 3.2',
-    '1' => 'v1: PuppetDB 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 2.0, 2.1, 2.2, 2.3'
+    '4' => 'v4: PuppetDB 4 - 7',
   }.freeze
 
   def self.client
@@ -14,10 +12,6 @@ module Puppetdb
     }
 
     case api_version
-    when 1
-      PuppetdbClient::V1.new(options)
-    when 3
-      PuppetdbClient::V3.new(options)
     when 4
       PuppetdbClient::V4.new(options)
     else
