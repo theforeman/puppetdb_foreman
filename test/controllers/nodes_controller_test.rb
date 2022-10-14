@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_plugin_helper'
 
 class NodesControllerTest < ActionController::TestCase
@@ -14,7 +16,7 @@ class NodesControllerTest < ActionController::TestCase
       ::PuppetdbClient::V4.any_instance.stubs(:query_nodes).returns([host.name, 'two.example.com'])
       get :index, session: set_session_user
       assert_response :success
-      refute response.body =~ /#{host.name}/m
+      assert_not response.body =~ /#{host.name}/m
       assert response.body =~ /two.example.com/m
     end
   end
@@ -26,7 +28,7 @@ class NodesControllerTest < ActionController::TestCase
       resources_resp = [
         { 'type' => 'Class', 'title' => 'main' },
         { 'type' => 'Class', 'title' => 'Settings' },
-        { 'type' => 'Stage', 'title' => 'main' }
+        { 'type' => 'Stage', 'title' => 'main' },
       ]
 
       ::PuppetdbClient::V4.any_instance.stubs(:resources).returns(resources_resp)
@@ -47,7 +49,7 @@ class NodesControllerTest < ActionController::TestCase
     let(:node) { 'test.example.com' }
     test 'deactivating a node in puppetdb' do
       ::PuppetdbClient::V4.any_instance.expects(:deactivate_node).with(node).returns(true)
-      delete :destroy, params: { :id => node }, session: set_session_user
+      delete :destroy, params: { id: node }, session: set_session_user
       assert_response :found
       assert_redirected_to puppetdb_foreman_nodes_path
       assert_nil flash[:error]
@@ -66,9 +68,9 @@ class NodesControllerTest < ActionController::TestCase
     end
 
     test 'imports a host from puppetdb facts' do
-      put :import, params: { :id => node }, session: set_session_user
+      put :import, params: { id: node }, session: set_session_user
       assert_response :found
-      assert_redirected_to host_path(:id => host)
+      assert_redirected_to host_path(id: host)
       assert_nil flash[:error]
       assert_not_nil flash[:notice] || flash[:success]
       assert_equal "Imported host #{node} from PuppetDB", flash[:notice] || flash[:success]

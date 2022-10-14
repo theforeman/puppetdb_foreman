@@ -1,88 +1,16 @@
-AllCops:
-  TargetRubyVersion: 2.3
-  TargetRailsVersion: 5.2
-  Exclude:
-    - 'Rakefile'
-
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
+inherit_gem:
+  theforeman-rubocop:
+    - default.yml
 
 Layout/LineLength:
-  Enabled: false
-
-Metrics:
-  Enabled: false
-
-Naming/AccessorMethodName:
-  Enabled: false
-
-Naming/FileName:
   Exclude:
-    - 'db/seeds.d/*'
+    - 'test/**/*'
 
-Rails:
-  Enabled: true
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/puppetdb_foreman/engine.rb'
+    - 'test/**/*'
 
-Rails/Date:
-  Enabled: false
-
-Rails/HasManyOrHasOneDependent:
-  Enabled: false
-
-Rails/LexicallyScopedActionFilter:
-  Enabled: false
-
-Rails/RefuteMethods:
-  Enabled: false
-
-Rails/SkipsModelValidations:
-  Enabled: false
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-Style/CommentedKeyword:
-  Enabled: false
-
-# Don't enforce documentation
-Style/Documentation:
-  Enabled: false
-
-Style/EachWithObject:
-  Enabled: false
-
-Style/FormatString:
-  Enabled: false
-
-Style/FormatStringToken:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/HashEachMethods:
-  Enabled: false
-
-Style/HashSyntax:
-  Enabled: false
-
-Style/HashTransformKeys:
-  Enabled: false
-
-Style/HashTransformValues:
-  Enabled: false
-
-Style/IfUnlessModifier:
-  Enabled: false
-
-Style/RedundantSelf:
-  Enabled: false
-
-Style/RescueModifier:
-  Enabled: false
-
-Style/SymbolArray:
-  Enabled: false
-
-Style/WordArray:
-  Enabled: false
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*'

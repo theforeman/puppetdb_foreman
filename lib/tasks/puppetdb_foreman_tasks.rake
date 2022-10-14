@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Tests
 namespace :test do
   desc 'Test PuppetdbForeman'
@@ -11,7 +13,7 @@ namespace :test do
 end
 
 namespace :puppetdb_foreman do
-  task :rubocop do
+  task rubocop: :environment do
     begin
       require 'rubocop/rake_task'
       RuboCop::RakeTask.new(:rubocop_puppetdb_foreman) do |task|
@@ -30,6 +32,4 @@ end
 Rake::Task[:test].enhance ['test:puppetdb_foreman']
 
 load 'tasks/jenkins.rake'
-if Rake::Task.task_defined?(:'jenkins:unit')
-  Rake::Task['jenkins:unit'].enhance ['test:puppetdb_foreman', 'puppetdb_foreman:rubocop']
-end
+Rake::Task['jenkins:unit'].enhance ['test:puppetdb_foreman', 'puppetdb_foreman:rubocop'] if Rake::Task.task_defined?(:'jenkins:unit')

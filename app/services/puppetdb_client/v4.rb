@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PuppetdbClient
   class V4 < Base
     # The payload is formatted as a JSON map.
@@ -9,8 +11,8 @@ module PuppetdbClient
         'version' => 3,
         'payload' => {
           'certname' => nodename,
-          'producer_timestamp' => producer_timestamp
-        }
+          'producer_timestamp' => producer_timestamp,
+        },
       }.to_json
     end
 
@@ -38,7 +40,7 @@ module PuppetdbClient
 
     def post_options
       {
-        content_type: :json
+        content_type: :json,
       }
     end
 

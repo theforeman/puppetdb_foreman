@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PuppetdbHost
   attr_accessor :certname, :environment, :facts
 
@@ -9,7 +11,7 @@ class PuppetdbHost
   def to_host
     host = Host::Managed.import_host(facts[:fqdn], certname)
     HostFactImporter.new(host).import_facts(facts)
-    host.update_attribute(:environment => environment) if environment
+    host.update_attribute(environment: environment) if environment   # rubocop:disable Rails/SkipsModelValidations
     host
   end
 

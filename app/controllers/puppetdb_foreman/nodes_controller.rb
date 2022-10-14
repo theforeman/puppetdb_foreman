@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module PuppetdbForeman
   class NodesController < ApplicationController
-    before_action :find_node, :only => [:show, :destroy, :import]
+    before_action :find_node, only: %i[show destroy import]
 
     def controller_permission
       'puppetdb_nodes'
@@ -12,7 +14,7 @@ module PuppetdbForeman
       @unknown_hosts = @puppetdb_hosts - @foreman_hosts
     end
 
-    def show
+    def show # rubocop:disable Metrics/AbcSize
       response = Puppetdb.client.resources(@node)
 
       class_names = response.map { |v| v['title'] if v['type'] == 'Class' }.compact
@@ -25,17 +27,29 @@ module PuppetdbForeman
 
     def destroy
       Puppetdb.client.deactivate_node(@node)
-      process_success :success_msg => _('Deactivated node %s in PuppetDB') % @node, :success_redirect => puppetdb_foreman_nodes_path
+      process_success(
+        success_msg: _('Deactivated node %s in PuppetDB') % @node,
+        success_redirect: puppetdb_foreman_nodes_path
+      )
     rescue StandardError => e
-      process_error(:redirect => puppetdb_foreman_nodes_path, :error_msg => _('Failed to deactivate node in PuppetDB: %s') % e.message)
+      process_error(
+        redirect: puppetdb_foreman_nodes_path,
+        error_msg: _('Failed to deactivate node in PuppetDB: %s') % e.message
+      )
     end
 
-    def import
+    def import # rubocop:disable Metrics/MethodLength
       facts = Puppetdb.client.facts(@node)
-      host = PuppetdbHost.new(:facts => facts).to_host
-      process_success :success_msg => _('Imported host %s from PuppetDB') % @node, :success_redirect => host_path(:id => host)
+      host = PuppetdbHost.new(facts: facts).to_host
+      process_success(
+        success_msg: _('Imported host %s from PuppetDB') % @node,
+        success_redirect: host_path(id: host)
+      )
     rescue StandardError => e
-      process_error(:redirect => puppetdb_foreman_nodes_path, :error_msg => _('Failed to import host from PuppetDB: %s') % e.message)
+      process_error(
+        redirect: puppetdb_foreman_nodes_path,
+        error_msg: _('Failed to import host from PuppetDB: %s') % e.message
+      )
     end
 
     private
