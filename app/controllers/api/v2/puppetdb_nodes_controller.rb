@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Api
   module V2
     class PuppetdbNodesController < V2::BaseController
       include Api::Version2
-      before_action :find_node, :only => [:destroy, :import]
+      before_action :find_node, only: %i[destroy import]
 
-      layout 'api/v2/layouts/index_layout', :only => [:index, :unknown]
+      layout 'api/v2/layouts/index_layout', only: %i[index unknown]
 
       api :GET, '/puppetdb_nodes/', N_('List all PuppetDB nodes')
       def index
@@ -19,20 +21,20 @@ module Api
       end
 
       api :DELETE, '/puppetdb_nodes/:id/', N_('Deactivate a node in PuppetDB')
-      param :id, String, :required => true
+      param :id, String, required: true
 
       def destroy
         uuid = Puppetdb.client.deactivate_node(@node)
-        response = { :job => { :uuid => uuid } }
+        response = { job: { uuid: uuid } }
         process_success response
       end
 
       api :PUT, '/puppetdb_nodes/:id/import/', N_('Import PuppetDB Node to Foreman Host')
-      param :id, :identifier, :required => true
+      param :id, :identifier, required: true
 
       def import
         facts = Puppetdb.client.facts(@node)
-        @host = PuppetdbHost.new(:facts => facts).to_host
+        @host = PuppetdbHost.new(facts: facts).to_host
       end
 
       # Overrides because PuppetDB is not backed by ActiveRecord

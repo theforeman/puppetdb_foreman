@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 module Puppetdb
   API_VERSIONS = {
     '4' => 'v4: PuppetDB 4 - 7',
   }.freeze
 
-  def self.client
+  def self.client # rubocop:disable Metrics/MethodLength
     options = {
-      :uri => uri,
-      :ssl_ca_file => Setting[:puppetdb_ssl_ca_file],
-      :ssl_certificate_file => Setting[:puppetdb_ssl_certificate],
-      :ssl_private_key_file => Setting[:puppetdb_ssl_private_key]
+      uri: uri,
+      ssl_ca_file: Setting[:puppetdb_ssl_ca_file],
+      ssl_certificate_file: Setting[:puppetdb_ssl_certificate],
+      ssl_private_key_file: Setting[:puppetdb_ssl_private_key],
     }
 
     case api_version

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module PuppetdbClient
   class Base
-    delegate :logger, :to => :Rails
+    delegate :logger, to: :Rails
     attr_reader :uri, :ssl_ca_file, :ssl_certificate_file, :ssl_private_key_file
 
     def initialize(opts)
@@ -66,13 +68,13 @@ module PuppetdbClient
 
     def request_options
       {
-        headers: request_headers
+        headers: request_headers,
       }.merge(auth_options).merge(ssl_options)
     end
 
     def request_headers
       {
-        'Accept' => 'application/json'
+        'Accept' => 'application/json',
       }
     end
 
@@ -80,11 +82,11 @@ module PuppetdbClient
       if ssl_ca_file
         {
           ssl_ca_file: ssl_ca_file,
-          verify_ssl: true
+          verify_ssl: true,
         }
       else
         {
-          verify_ssl: false
+          verify_ssl: false,
         }
       end
     end
@@ -93,7 +95,7 @@ module PuppetdbClient
       return {} unless certificate_request?
       {
         ssl_client_cert: ssl_certificate,
-        ssl_client_key: ssl_private_key
+        ssl_client_key: ssl_private_key,
       }
     end
 

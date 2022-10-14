@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_plugin_helper'
 
 class HostTest < ActiveSupport::TestCase
@@ -39,7 +41,7 @@ class HostTest < ActiveSupport::TestCase
         host.queue.clear
         host.send(:queue_puppetdb_destroy)
         tasks = host.queue.all.map(&:name)
-        assert_equal [], tasks
+        assert_empty tasks
       end
     end
   end
