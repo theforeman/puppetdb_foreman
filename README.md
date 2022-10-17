@@ -11,7 +11,7 @@ It does the following:
   * Compares nodes in PuppetDB to Hosts in Foreman.
   * Creates Hosts in Foreman from PuppetDB facts.
 
-Feel free to raise issues, ask for features, anything, in the github repository or #theforeman IRC channel in Freenode.
+Feel free to raise issues, ask for features, anything, in the github repository or visit [the Foreman support pages](https://theforeman.org/support.html).
 
 ## Compatibility
 
