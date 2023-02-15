@@ -24,7 +24,7 @@ module Orchestration
       ::Puppetdb.client.deactivate_node(certname)
     rescue StandardError => e
       failure format(
-        _("Failed to deactivate node %<certname> (%<name>) in PuppetDB: %<message>\n "),
+        _("Failed to deactivate node %<certname>s (%<name>s) in PuppetDB: %<message>s\n "),
         name: name, message: e.message, certname: certname
       ), e
     end
