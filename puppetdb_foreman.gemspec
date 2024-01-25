@@ -26,4 +26,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rdoc'
   s.add_development_dependency 'theforeman-rubocop', '~> 0.1.2'
   s.add_development_dependency 'webmock'
+
+  s.required_ruby_version = '>= 2.7', '< 4'
 end
