@@ -7,7 +7,15 @@ Gem::Specification.new do |s|
   s.version     = PuppetdbForeman::VERSION
   s.license     = 'GPL-3.0'
   s.summary     = 'This is a Foreman plugin to interact with PuppetDB.'
-  s.description = 'Disable hosts on PuppetDB after they are deleted or built in Foreman. Follow https://github.com/theforeman/puppetdb_foreman and raise an issue/submit a pull request if you need extra functionality. You can also find some help via the Foreman support pages (https://theforeman.org/support.html).'
+
+  s.description = <<-DESC
+    Disable hosts on PuppetDB after they are deleted or built in Foreman.
+    Follow https://github.com/theforeman/puppetdb_foreman and raise an
+    issue/submit a pull request if you need extra functionality. You can also
+    find some help via the Foreman support pages
+    (https://theforeman.org/support.html).
+  DESC
+
   s.authors     = ['Daniel Lobato Garcia']
   s.email       = 'elobatocs@gmail.com'
   s.files       = Dir['{app,db,config,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
