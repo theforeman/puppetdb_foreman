@@ -12,10 +12,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: { format: 'json' } do
-    scope '(:apiv)', module: :v2,
-                     defaults: { apiv: 'v2' },
-                     apiv: /v1|v2/,
-                     constraints: ApiConstraints.new(version: 2) do
+    scope '(:apiv)', module: :v2, defaults: { apiv: 'v2' },
+                     apiv: /v1|v2/, constraints: ApiConstraints.new(version: 2) do
       constraints(id: %r{[^/]+}) do
         resources :puppetdb_nodes, only: %i[index destroy] do
           collection do
