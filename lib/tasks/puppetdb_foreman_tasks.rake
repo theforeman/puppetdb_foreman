@@ -32,4 +32,6 @@ end
 Rake::Task[:test].enhance ['test:puppetdb_foreman']
 
 load 'tasks/jenkins.rake'
-Rake::Task['jenkins:unit'].enhance ['test:puppetdb_foreman', 'puppetdb_foreman:rubocop'] if Rake::Task.task_defined?(:'jenkins:unit')
+if Rake::Task.task_defined?(:'jenkins:unit')
+  Rake::Task['jenkins:unit'].enhance ['test:puppetdb_foreman', 'puppetdb_foreman:rubocop']
+end
