@@ -2,7 +2,7 @@
 
 module Puppetdb
   API_VERSIONS = {
-    '4' => 'v4: PuppetDB 4 - 7',
+    '4' => 'v4: PuppetDB 4 - 8',
   }.freeze
 
   def self.client # rubocop:disable Metrics/MethodLength
